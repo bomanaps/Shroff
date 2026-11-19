@@ -21,3 +21,7 @@ if (settlement === undefined) {
   process.exit(2);
 }
 console.log(`[buyer] settlement: ${JSON.stringify(settlement)}`);
+if (settlement.success !== true) {
+  console.log("[buyer] delivery verification failed: payment was NOT settled, funds never left the wallet");
+  process.exit(3);
+}
