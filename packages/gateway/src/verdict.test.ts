@@ -18,6 +18,7 @@ test("exit 0 with passed run_end is delivered and settleable", () => {
   const verdict = triage({
     exitCode: 0,
     events: [],
+    testMdDone: undefined,
     runEnd: runEnd({ status: "passed" }),
     stderr: "",
   });
@@ -30,6 +31,7 @@ test("exit 1 with failed run_end is not delivered and disputable", () => {
   const verdict = triage({
     exitCode: 1,
     events: [],
+    testMdDone: undefined,
     runEnd: runEnd({ status: "failed", summary: "paywall never unlocked" }),
     stderr: "",
   });
@@ -42,6 +44,7 @@ test("infra_error reason is never disputable even on exit 1", () => {
   const verdict = triage({
     exitCode: 1,
     events: [],
+    testMdDone: undefined,
     runEnd: runEnd({ status: "failed", reason: "infra_error.screenshot_failed" }),
     stderr: "",
   });
@@ -51,19 +54,19 @@ test("infra_error reason is never disputable even on exit 1", () => {
 });
 
 test("exit 2 is an infra error regardless of output", () => {
-  const verdict = triage({ exitCode: 2, events: [], runEnd: undefined, stderr: "auth" });
+  const verdict = triage({ exitCode: 2, events: [], runEnd: undefined, testMdDone: undefined, stderr: "auth" });
   assert.equal(verdict.kind, "infra_error");
   assert.equal(verdict.settleable, false);
 });
 
 test("exit 3 is a timeout", () => {
-  const verdict = triage({ exitCode: 3, events: [], runEnd: undefined, stderr: "" });
+  const verdict = triage({ exitCode: 3, events: [], runEnd: undefined, testMdDone: undefined, stderr: "" });
   assert.equal(verdict.kind, "timed_out");
   assert.equal(verdict.settleable, false);
 });
 
 test("missing run_end on exit 0 is incomplete, not delivered", () => {
-  const verdict = triage({ exitCode: 0, events: [], runEnd: undefined, stderr: "" });
+  const verdict = triage({ exitCode: 0, events: [], runEnd: undefined, testMdDone: undefined, stderr: "" });
   assert.equal(verdict.kind, "incomplete");
   assert.equal(verdict.settleable, false);
   assert.equal(verdict.disputable, false);
@@ -73,9 +76,38 @@ test("exit 0 with a failed run_end does not settle", () => {
   const verdict = triage({
     exitCode: 0,
     events: [],
+    testMdDone: undefined,
     runEnd: runEnd({ status: "failed" }),
     stderr: "",
   });
   assert.equal(verdict.kind, "not_delivered");
   assert.equal(verdict.settleable, false);
+});
+
+test("testmd surface settles only on test_md_done passed", () => {
+  const done = { v: 1, ts: "t", type: "test_md_done", overall_status: "passed" } as const;
+  const verdict = triage(
+    { exitCode: 0, events: [], runEnd: undefined, testMdDone: done, stderr: "" },
+    "testmd",
+  );
+  assert.equal(verdict.kind, "delivered");
+});
+
+test("testmd surface treats intermediate run_end pass without test_md_done as incomplete", () => {
+  const verdict = triage(
+    { exitCode: 0, events: [], runEnd: runEnd({ status: "passed" }), testMdDone: undefined, stderr: "" },
+    "testmd",
+  );
+  assert.equal(verdict.kind, "incomplete");
+  assert.equal(verdict.settleable, false);
+});
+
+test("testmd surface failed overall_status is disputable", () => {
+  const done = { v: 1, ts: "t", type: "test_md_done", overall_status: "failed" } as const;
+  const verdict = triage(
+    { exitCode: 1, events: [], runEnd: undefined, testMdDone: done, stderr: "" },
+    "testmd",
+  );
+  assert.equal(verdict.kind, "not_delivered");
+  assert.equal(verdict.disputable, true);
 });

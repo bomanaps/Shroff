@@ -11,6 +11,9 @@
       "path": "packages/loop"
     },
     {
+      "path": "packages/spec-compiler"
+    },
+    {
       "path": "apps/seller-honest"
     },
     {

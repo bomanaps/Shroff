@@ -1,16 +1,21 @@
-import { createBuyerClient } from "@shroff/buyer";
 import type { VerdictRecord } from "@shroff/gateway";
 import { runRepairAgent, type AgentConfig } from "./agent.js";
 import { buildRepairPrompt } from "./prompt.js";
 
+export interface PurchaseResult {
+  settled: boolean;
+  transaction?: string;
+}
+
 export interface LoopConfig {
   sellerUrl: string;
   verdictsUrl: string;
-  buyerPrivateKey: `0x${string}`;
+  purchase: (sellerUrl: string) => Promise<PurchaseResult>;
   projectDir: string;
   agent: AgentConfig;
   maxAttempts: number;
   settleDelayMs?: number;
+  repair?: (prompt: string, agent: AgentConfig) => Promise<unknown>;
 }
 
 export type AttemptOutcome =
@@ -32,15 +37,13 @@ export async function runLoop(
   config: LoopConfig,
   log: (line: string) => void = console.log,
 ): Promise<AttemptOutcome> {
-  const buyer = createBuyerClient(config.buyerPrivateKey);
-
   for (let attempt = 1; attempt <= config.maxAttempts; attempt++) {
     log(`[loop] attempt ${attempt}/${config.maxAttempts}: purchasing ${config.sellerUrl}`);
-    const { settlement } = await buyer.paidFetch(config.sellerUrl);
+    const purchase = await config.purchase(config.sellerUrl);
 
-    if (settlement?.success === true) {
-      log(`[loop] delivery verified, payment settled: ${settlement.transaction}`);
-      return { kind: "settled", transaction: settlement.transaction, attempt };
+    if (purchase.settled) {
+      log(`[loop] delivery verified, payment settled: ${purchase.transaction ?? "?"}`);
+      return { kind: "settled", transaction: purchase.transaction ?? "", attempt };
     }
 
     const record = await fetchLatestVerdict(config.verdictsUrl);
@@ -58,8 +61,9 @@ export async function runLoop(
     log(`[loop] delivery failed: ${record.verdict.summary}`);
     log(`[loop] invoking repair agent on ${config.projectDir}`);
     const prompt = buildRepairPrompt(record, config.projectDir);
-    const result = await runRepairAgent(config.agent, prompt);
-    log(`[loop] agent exited ${String(result.exitCode)}`);
+    const repair = config.repair ?? ((p, a) => runRepairAgent(a, p).then((r) => r.exitCode));
+    const outcome = await repair(prompt, config.agent);
+    log(`[loop] agent finished (${String(outcome)})`);
     if (config.settleDelayMs !== undefined) {
       await new Promise((resolve) => setTimeout(resolve, config.settleDelayMs));
     }

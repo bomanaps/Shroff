@@ -51,16 +51,18 @@ app.get("/report/view/:token", (req, res) => {
   res.type("html").send(page);
 });
 
+const ACCEPTANCE_TEST =
+  ".testmuai/tests/check-complete-stablecoin-market-snapshot-at-the-delivery_test.md";
+
 const gate = createDeliveryGate({
   checkFor: () => {
     const deliveryUrl = getDeliveryUrl();
     return {
       label: "market-report-delivery",
       run: {
-        objective:
-          `open ${deliveryUrl} and verify the page shows a report titled ` +
-          `'Stablecoin Market Snapshot', a table with at least 5 asset rows each ` +
-          `having a price and a 24h change, and a generated-at timestamp`,
+        testFile: ACCEPTANCE_TEST,
+        variables: { delivery_url: deliveryUrl },
+        cwd: new URL("..", import.meta.url).pathname,
         timeoutSeconds: KANE_TIMEOUT,
       },
     };
