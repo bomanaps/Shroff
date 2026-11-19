@@ -1,0 +1,22 @@
+{
+  "name": "@shroff/gateway",
+  "version": "0.1.0",
+  "description": "x402 seller middleware that holds settlement until Kane CLI verifies delivery",
+  "license": "MIT",
+  "author": "bomanaps",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@x402/core": "^2.31.0",
+    "@x402/evm": "^2.31.0",
+    "@x402/express": "^2.31.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@shroff/buyer",
+  "version": "0.1.0",
+  "description": "x402 buyer agent that pays, consumes Shroff verdicts, and decides to accept, retry, or dispute",
+  "license": "MIT",
+  "author": "bomanaps",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@x402/evm": "^2.31.0",
+    "@x402/fetch": "^2.31.0"
+  }
+}
