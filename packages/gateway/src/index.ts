@@ -16,6 +16,11 @@ export {
 } from "./verdict.js";
 export { runKane, buildKaneArgs, type KaneRunOptions } from "./kane.js";
 export {
+  deliveryContextMiddleware,
+  setDeliveryUrl,
+  getDeliveryUrl,
+} from "./delivery-context.js";
+export {
   createDeliveryGate,
   type DeliveryCheck,
   type DeliveryGate,

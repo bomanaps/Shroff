@@ -45,13 +45,16 @@ export function triage(result: KaneRunResult): DeliveryVerdict {
     runEnd,
   };
 
-  if (exitCode === KANE_EXIT.notStarted) {
+  if (exitCode === null || exitCode === KANE_EXIT.notStarted || exitCode > KANE_EXIT.timedOut || exitCode < 0) {
     return {
       ...base,
       kind: "infra_error",
       settleable: false,
       disputable: false,
-      summary: "Kane did not start; delivery is unverified",
+      summary:
+        exitCode === KANE_EXIT.notStarted
+          ? "Kane did not start; delivery is unverified"
+          : "Kane was interrupted or exited abnormally; delivery is unverified",
     };
   }
   if (exitCode === KANE_EXIT.timedOut) {

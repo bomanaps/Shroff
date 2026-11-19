@@ -28,8 +28,14 @@ export function createBuyerClient(privateKey: `0x${string}`): BuyerClient {
     paidFetch: async (input, init) => {
       const response = await fetchWithPay(input, init);
       const header = response.headers.get("PAYMENT-RESPONSE");
-      const settlement =
-        header === null ? undefined : decodePaymentResponseHeader(header);
+      let settlement: PaidFetchResult["settlement"];
+      if (header !== null) {
+        try {
+          settlement = decodePaymentResponseHeader(header);
+        } catch {
+          console.error("[buyer] ignoring malformed PAYMENT-RESPONSE header");
+        }
+      }
       return { response, settlement };
     },
   };

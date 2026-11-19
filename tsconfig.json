@@ -6,6 +6,12 @@
     },
     {
       "path": "packages/buyer"
+    },
+    {
+      "path": "apps/seller-honest"
+    },
+    {
+      "path": "apps/seller-evil"
     }
   ]
 }

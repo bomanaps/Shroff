@@ -12,10 +12,12 @@ export interface KaneRunOptions {
   headless?: boolean;
   variables?: Record<string, string>;
   kaneBin?: string;
+  watchdogGraceSeconds?: number;
   onEvent?: (event: KaneEvent) => void;
 }
 
 const DEFAULT_TIMEOUT_SECONDS = 300;
+const WATCHDOG_GRACE_SECONDS = 30;
 const DEFAULT_BIN = "kane-cli";
 
 export function buildKaneArgs(options: KaneRunOptions): string[] {
@@ -24,6 +26,11 @@ export function buildKaneArgs(options: KaneRunOptions): string[] {
   }
   if (options.objective !== undefined && options.testFile !== undefined) {
     throw new Error("Kane run takes an objective or a test file, not both");
+  }
+
+  const timeout = options.timeoutSeconds ?? DEFAULT_TIMEOUT_SECONDS;
+  if (!Number.isFinite(timeout) || timeout <= 0) {
+    throw new Error(`Kane timeout must be a positive number of seconds, got ${String(timeout)}`);
   }
 
   const args =
@@ -35,7 +42,7 @@ export function buildKaneArgs(options: KaneRunOptions): string[] {
   if (options.headless !== false) {
     args.push("--headless");
   }
-  args.push("--timeout", String(options.timeoutSeconds ?? DEFAULT_TIMEOUT_SECONDS));
+  args.push("--timeout", String(timeout));
   if (options.url !== undefined) {
     args.push("--url", options.url);
   }
@@ -67,12 +74,24 @@ export async function runKane(options: KaneRunOptions): Promise<KaneRunResult> {
     }
   });
 
-  const [exitCode] = (await once(child, "close")) as [number | null];
+  const timeoutSeconds = options.timeoutSeconds ?? DEFAULT_TIMEOUT_SECONDS;
+  const grace = options.watchdogGraceSeconds ?? WATCHDOG_GRACE_SECONDS;
+  const watchdog = setTimeout(
+    () => {
+      child.kill("SIGKILL");
+    },
+    (timeoutSeconds + grace) * 1000,
+  );
 
-  return {
-    exitCode,
-    events,
-    runEnd: selectRunEnd(events),
-    stderr: Buffer.concat(stderrChunks).toString("utf8"),
-  };
+  try {
+    const [exitCode] = (await once(child, "close")) as [number | null];
+    return {
+      exitCode,
+      events,
+      runEnd: selectRunEnd(events),
+      stderr: Buffer.concat(stderrChunks).toString("utf8"),
+    };
+  } finally {
+    clearTimeout(watchdog);
+  }
 }
