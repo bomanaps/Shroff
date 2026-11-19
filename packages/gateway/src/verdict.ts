@@ -1,4 +1,6 @@
-import type { KaneEvent, RunEndEvent } from "./events.js";
+import { homedir } from "node:os";
+import { join } from "node:path";
+import type { KaneEvent, RunEndEvent, TestMdDoneEvent } from "./events.js";
 
 export const KANE_EXIT = {
   passed: 0,
@@ -18,6 +20,7 @@ export interface KaneRunResult {
   exitCode: number | null;
   events: readonly KaneEvent[];
   runEnd: RunEndEvent | undefined;
+  testMdDone: TestMdDoneEvent | undefined;
   stderr: string;
 }
 
@@ -36,8 +39,21 @@ function isInfraReason(reason: string | undefined): boolean {
   return reason !== undefined && reason.startsWith("infra_error.");
 }
 
-export function triage(result: KaneRunResult): DeliveryVerdict {
-  const { exitCode, runEnd } = result;
+function nonEmpty(value: string | undefined): string | undefined {
+  return value !== undefined && value.trim() !== "" ? value : undefined;
+}
+
+function sessionDirFromId(sessionId: string | undefined): string | undefined {
+  if (sessionId === undefined) {
+    return undefined;
+  }
+  return join(homedir(), ".testmuai", "kaneai", "sessions", sessionId);
+}
+
+export type KaneSurface = "run" | "testmd";
+
+export function triage(result: KaneRunResult, surface: KaneSurface = "run"): DeliveryVerdict {
+  const { exitCode, runEnd, testMdDone } = result;
   const base = {
     reason: runEnd?.reason,
     sessionDir: runEnd?.session_dir,
@@ -66,6 +82,49 @@ export function triage(result: KaneRunResult): DeliveryVerdict {
       summary: "Kane timed out before reaching a verdict",
     };
   }
+  if (runEnd !== undefined && isInfraReason(runEnd.reason)) {
+    return {
+      ...base,
+      kind: "infra_error",
+      settleable: false,
+      disputable: false,
+      summary: runEnd.summary,
+    };
+  }
+
+  if (surface === "testmd") {
+    const testMdBase = {
+      ...base,
+      sessionDir: base.sessionDir ?? sessionDirFromId(testMdDone?.session_id),
+    };
+    if (testMdDone === undefined) {
+      return {
+        ...testMdBase,
+        kind: "incomplete",
+        settleable: false,
+        disputable: false,
+        summary: "Kane produced no final test verdict; run is incomplete",
+      };
+    }
+    const shareNote = testMdDone.share_url !== undefined ? ` (report: ${testMdDone.share_url})` : "";
+    if (exitCode === KANE_EXIT.passed && testMdDone.overall_status === "passed") {
+      return {
+        ...testMdBase,
+        kind: "delivered",
+        settleable: true,
+        disputable: false,
+        summary: nonEmpty(runEnd?.summary) ?? `Saved acceptance test passed${shareNote}`,
+      };
+    }
+    return {
+      ...testMdBase,
+      kind: "not_delivered",
+      settleable: false,
+      disputable: true,
+      summary: nonEmpty(runEnd?.summary) ?? `Saved acceptance test failed${shareNote}`,
+    };
+  }
+
   if (runEnd === undefined) {
     return {
       ...base,
@@ -73,15 +132,6 @@ export function triage(result: KaneRunResult): DeliveryVerdict {
       settleable: false,
       disputable: false,
       summary: "Kane produced no final verdict; run is incomplete",
-    };
-  }
-  if (isInfraReason(runEnd.reason)) {
-    return {
-      ...base,
-      kind: "infra_error",
-      settleable: false,
-      disputable: false,
-      summary: runEnd.summary,
     };
   }
   if (exitCode === KANE_EXIT.passed && runEnd.status === "passed") {

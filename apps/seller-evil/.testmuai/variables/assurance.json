@@ -1,0 +1,7 @@
+{
+  "delivery_url": {
+    "value": "",
+    "secret": false,
+    "description": "Browser URL for the delivered Stablecoin Market Snapshot report, supplied after payment as documented in delivery-spec line 16."
+  }
+}

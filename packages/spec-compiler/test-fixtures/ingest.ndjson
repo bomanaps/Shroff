@@ -1,0 +1,22 @@
+{"type":"gitignore_updated","v":1,"verb":"extract","path":".gitignore"}
+{"type":"ingested","v":1,"verb":"extract","source_id":"delivery-spec","status":"created","cid":"sha256:b9ca7a713fa370158fa115ad896e147deaa67627e7efd7db21cfa39d4998d61a"}
+{"type":"run_start","v":1,"verb":"extract","mode":"agent","trace":"/Users/mercynaps/.testmuai/kaneai/assurance/ctx-21dd85e21be7/logs/extract-as-20261119T1558-k6stge7t.log","session":"as-20261119T1558-k6stge7t"}
+{"type":"corpus","v":1,"verb":"extract","sources":[{"source_id":"delivery-spec","cid":"sha256:b9ca7a713fa370158fa115ad896e147deaa67627e7efd7db21cfa39d4998d61a"}],"skipped":[]}
+{"type":"source_start","v":1,"verb":"extract","source_id":"delivery-spec","cid":"sha256:b9ca7a713fa370158fa115ad896e147deaa67627e7efd7db21cfa39d4998d61a","index":1,"total":1,"resumed":false}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"thinking_done","label":"thought for 1.5s"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"tool","label":"→ list sources…"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"tool","label":"→ list a source's items…"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"tool","label":"→ find similar items…"}
+{"type":"usage","v":1,"verb":"extract","credits":3.61,"total_credits":3.61}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"decision","label":"checking which sources there are"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"tool","label":"✓ list sources"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"decision","label":"checking what came from a source"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"tool","label":"✓ list a source's items"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"decision","label":"checking a possible duplicate"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"tool","label":"✓ find similar items"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"tool","label":"→ propose use-cases…"}
+{"type":"usage","v":1,"verb":"extract","credits":1.31,"total_credits":4.92}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"decision","label":"putting the result together"}
+{"type":"agent_activity","v":1,"verb":"extract","kind":"tool","label":"✓ propose use-cases"}
+{"type":"commit","v":1,"verb":"extract","source_id":"delivery-spec","proposal_id":"20261119T155850-delivery-spec","trusted":0,"derived":1,"archived":0,"superseded":0,"assumed":0,"evidence_matched":0,"minted":[{"cid":"sha256:535845a7ad36961423d3aa1ecefbd78178d4bbbfb822519d35f24d030b178caa","logical_id":"uc-1"}]}
+{"type":"done","v":1,"verb":"extract","status":"complete","exit_code":0}

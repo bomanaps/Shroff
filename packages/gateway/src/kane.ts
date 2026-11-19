@@ -1,7 +1,7 @@
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { createInterface } from "node:readline";
-import { parseKaneLine, selectRunEnd, type KaneEvent } from "./events.js";
+import { parseKaneLine, selectRunEnd, selectTestMdDone, type KaneEvent } from "./events.js";
 import type { KaneRunResult } from "./verdict.js";
 
 export interface KaneRunOptions {
@@ -12,6 +12,7 @@ export interface KaneRunOptions {
   headless?: boolean;
   variables?: Record<string, string>;
   kaneBin?: string;
+  cwd?: string;
   watchdogGraceSeconds?: number;
   onEvent?: (event: KaneEvent) => void;
 }
@@ -47,7 +48,13 @@ export function buildKaneArgs(options: KaneRunOptions): string[] {
     args.push("--url", options.url);
   }
   if (options.variables !== undefined && Object.keys(options.variables).length > 0) {
-    args.push("--variables", JSON.stringify(options.variables));
+    const payload =
+      options.testFile !== undefined
+        ? Object.fromEntries(
+            Object.entries(options.variables).map(([name, value]) => [name, { value }]),
+          )
+        : options.variables;
+    args.push("--variables", JSON.stringify(payload));
   }
   return args;
 }
@@ -56,6 +63,7 @@ export async function runKane(options: KaneRunOptions): Promise<KaneRunResult> {
   const args = buildKaneArgs(options);
   const child = spawn(options.kaneBin ?? DEFAULT_BIN, args, {
     stdio: ["ignore", "pipe", "pipe"],
+    ...(options.cwd !== undefined ? { cwd: options.cwd } : {}),
   });
 
   const events: KaneEvent[] = [];
@@ -89,6 +97,7 @@ export async function runKane(options: KaneRunOptions): Promise<KaneRunResult> {
       exitCode,
       events,
       runEnd: selectRunEnd(events),
+      testMdDone: selectTestMdDone(events),
       stderr: Buffer.concat(stderrChunks).toString("utf8"),
     };
   } finally {

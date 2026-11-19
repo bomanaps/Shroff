@@ -48,12 +48,21 @@ export interface RunEndEvent extends KaneEnvelope {
   verdict?: Record<string, unknown>;
 }
 
+export interface TestMdDoneEvent extends KaneEnvelope {
+  type: "test_md_done";
+  overall_status: "passed" | "failed";
+  duration_s?: number;
+  session_id?: string;
+  share_url?: string;
+}
+
 export type KaneEvent =
   | StreamStartEvent
   | StepEvent
   | ErrorEvent
   | WarningEvent
-  | RunEndEvent;
+  | RunEndEvent
+  | TestMdDoneEvent;
 
 export function parseKaneLine(line: string): KaneEvent | undefined {
   const trimmed = line.trim();
@@ -84,6 +93,20 @@ export function selectRunEnd(events: readonly KaneEvent[]): RunEndEvent | undefi
   for (let i = events.length - 1; i >= 0; i--) {
     const event = events[i];
     if (event !== undefined && isRunEnd(event)) {
+      return event;
+    }
+  }
+  return undefined;
+}
+
+export function isTestMdDone(event: KaneEvent): event is TestMdDoneEvent {
+  return "type" in event && event.type === "test_md_done";
+}
+
+export function selectTestMdDone(events: readonly KaneEvent[]): TestMdDoneEvent | undefined {
+  for (let i = events.length - 1; i >= 0; i--) {
+    const event = events[i];
+    if (event !== undefined && isTestMdDone(event)) {
       return event;
     }
   }

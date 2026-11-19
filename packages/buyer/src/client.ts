@@ -13,7 +13,7 @@ export interface PaidFetchResult {
 
 export interface BuyerClient {
   address: `0x${string}`;
-  paidFetch: (input: RequestInfo | URL, init?: RequestInit) => Promise<PaidFetchResult>;
+  paidFetch: (input: Parameters<typeof fetch>[0], init?: RequestInit) => Promise<PaidFetchResult>;
 }
 
 export function createBuyerClient(privateKey: `0x${string}`): BuyerClient {
