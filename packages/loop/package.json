@@ -1,0 +1,17 @@
+{
+  "name": "@shroff/loop",
+  "version": "0.1.0",
+  "description": "Closed repair loop: failed Kane verdicts become repair prompts for a coding agent, then re-verify",
+  "license": "MIT",
+  "author": "bomanaps",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@shroff/buyer": "0.1.0",
+    "@shroff/gateway": "0.1.0"
+  }
+}

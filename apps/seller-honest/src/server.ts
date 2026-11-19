@@ -38,6 +38,10 @@ function storeDelivery(token: string, page: string): void {
 
 app.use(deliveryContextMiddleware);
 
+app.get("/verdicts", (_req, res) => {
+  res.json(gate.records.slice(-10));
+});
+
 app.get("/report/view/:token", (req, res) => {
   const page = deliveries.get(req.params["token"] ?? "");
   if (page === undefined) {
