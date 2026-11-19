@@ -1,6 +1,11 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/gateway" }
+    {
+      "path": "packages/gateway"
+    },
+    {
+      "path": "packages/buyer"
+    }
   ]
 }
