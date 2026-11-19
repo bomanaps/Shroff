@@ -8,6 +8,9 @@
       "path": "packages/buyer"
     },
     {
+      "path": "packages/loop"
+    },
+    {
       "path": "apps/seller-honest"
     },
     {
