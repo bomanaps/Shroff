@@ -4,11 +4,11 @@ import { paymentMiddleware, x402ResourceServer } from "@x402/express";
 import { HTTPFacilitatorClient } from "@x402/core/server";
 import { ExactEvmScheme } from "@x402/evm/exact/server";
 import {
-  createDeliveryGate,
   deliveryContextMiddleware,
   getDeliveryUrl,
   setDeliveryUrl,
 } from "@shroff/gateway";
+import { connectReferee, createRefereeGate } from "@shroff/referee";
 import { buildReport, renderReportPage } from "./report.js";
 
 const PORT = Number(process.env["PORT"] ?? 4021);
@@ -39,7 +39,22 @@ function storeDelivery(token: string, page: string): void {
 app.use(deliveryContextMiddleware);
 
 app.get("/verdicts", (_req, res) => {
-  res.json(gate.records.slice(-10));
+  res.json(
+    gate.records.slice(-10).map((signed) => ({
+      label: "market-report-delivery",
+      settledAt: signed.issuedAt,
+      signature: signed.signature,
+      refereeId: signed.refereeId,
+      testHash: signed.testHash,
+      verdict: {
+        kind: signed.verdict.kind,
+        settleable: signed.verdict.settleable,
+        disputable: signed.verdict.disputable,
+        summary: signed.verdict.summary,
+        sessionDir: signed.evidenceDir,
+      },
+    })),
+  );
 });
 
 app.get("/report/view/:token", (req, res) => {
@@ -53,24 +68,18 @@ app.get("/report/view/:token", (req, res) => {
 
 const ACCEPTANCE_TEST =
   ".testmuai/tests/check-complete-stablecoin-market-snapshot-at-the-delivery_test.md";
+const REFEREE_URL = process.env["REFEREE_URL"] ?? "http://localhost:4040";
 
-const gate = createDeliveryGate({
-  checkFor: () => {
-    const deliveryUrl = getDeliveryUrl();
-    return {
-      label: "market-report-delivery",
-      run: {
-        testFile: ACCEPTANCE_TEST,
-        variables: { delivery_url: deliveryUrl },
-        cwd: new URL("..", import.meta.url).pathname,
-        timeoutSeconds: KANE_TIMEOUT,
-      },
-    };
-  },
-  onVerdict: (record) => {
+const referee = await connectReferee(REFEREE_URL);
+console.log(`[seller-honest] trusting referee ${referee.refereeId} at ${REFEREE_URL}`);
+
+const gate = createRefereeGate(referee, {
+  testFile: ACCEPTANCE_TEST,
+  getDeliveryUrl,
+  onVerdict: (signed) => {
     console.log(
-      `[shroff] verdict=${record.verdict.kind} settleable=${record.verdict.settleable} ` +
-        `summary=${JSON.stringify(record.verdict.summary)} evidence=${record.verdict.sessionDir ?? "n/a"}`,
+      `[shroff] signed verdict=${signed.verdict.kind} settleable=${signed.verdict.settleable} ` +
+        `referee=${signed.refereeId} test=${signed.testHash.slice(0, 18)}… evidence=${signed.evidenceDir ?? "n/a"}`,
     );
   },
 });

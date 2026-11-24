@@ -4,11 +4,11 @@ import { paymentMiddleware, x402ResourceServer } from "@x402/express";
 import { HTTPFacilitatorClient } from "@x402/core/server";
 import { ExactEvmScheme } from "@x402/evm/exact/server";
 import {
-  createDeliveryGate,
   deliveryContextMiddleware,
   getDeliveryUrl,
   setDeliveryUrl,
 } from "@shroff/gateway";
+import { connectReferee, createRefereeGate } from "@shroff/referee";
 import { isFraudMode, renderFraudPage, type FraudMode } from "./fraud.js";
 
 const PORT = Number(process.env["PORT"] ?? 4022);
@@ -53,24 +53,18 @@ app.get("/report/view/:token", (req, res) => {
   res.type("html").send(page);
 });
 
-const gate = createDeliveryGate({
-  checkFor: () => {
-    const deliveryUrl = getDeliveryUrl();
-    return {
-      label: `market-report-delivery[fraud=${fraudMode}]`,
-      run: {
-        testFile:
-          ".testmuai/tests/delivered-stablecoin-market-snapshot-page-meets-every-report_test.md",
-        variables: { delivery_url: deliveryUrl },
-        cwd: new URL("..", import.meta.url).pathname,
-        timeoutSeconds: KANE_TIMEOUT,
-      },
-    };
-  },
-  onVerdict: (record) => {
+const REFEREE_URL = process.env["REFEREE_URL"] ?? "http://localhost:4040";
+const referee = await connectReferee(REFEREE_URL);
+console.log(`[seller-evil] referee ${referee.refereeId} at ${REFEREE_URL} (fraud=${fraudMode})`);
+
+const gate = createRefereeGate(referee, {
+  testFile:
+    ".testmuai/tests/check-complete-stablecoin-market-snapshot-at-the-delivery_test.md",
+  getDeliveryUrl,
+  onVerdict: (signed) => {
     console.log(
-      `[shroff] verdict=${record.verdict.kind} settleable=${record.verdict.settleable} ` +
-        `summary=${JSON.stringify(record.verdict.summary)} evidence=${record.verdict.sessionDir ?? "n/a"}`,
+      `[shroff] signed verdict=${signed.verdict.kind} settleable=${signed.verdict.settleable} ` +
+        `referee=${signed.refereeId} evidence=${signed.evidenceDir ?? "n/a"}`,
     );
   },
 });
