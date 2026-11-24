@@ -1,0 +1,16 @@
+{
+  "name": "@shroff/spec-compiler",
+  "version": "0.1.0",
+  "description": "Compile a seller's plain-English delivery promise into committed Kane acceptance tests via Kane's assurance pipeline",
+  "license": "MIT",
+  "author": "bomanaps",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "shroff-compile-spec": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ]
+}

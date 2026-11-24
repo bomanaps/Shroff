@@ -1,4 +1,5 @@
 import { resolve } from "node:path";
+import { createBuyerClient } from "@shroff/buyer";
 import { runLoop } from "./loop.js";
 
 const PRIVATE_KEY = process.env["BUYER_PRIVATE_KEY"] as `0x${string}` | undefined;
@@ -15,10 +16,18 @@ const agentArgs =
     : ["-p", "--allowedTools", "Read Edit Glob Grep"];
 const projectDir = resolve(process.env["PROJECT_DIR"] ?? "apps/seller-honest");
 
+const buyer = createBuyerClient(PRIVATE_KEY);
+
 const outcome = await runLoop({
   sellerUrl: `${sellerBase}/report`,
   verdictsUrl: `${sellerBase}/verdicts`,
-  buyerPrivateKey: PRIVATE_KEY,
+  purchase: async (url) => {
+    const { settlement } = await buyer.paidFetch(url);
+    return {
+      settled: settlement?.success === true,
+      ...(settlement?.transaction !== undefined ? { transaction: settlement.transaction } : {}),
+    };
+  },
   projectDir,
   agent: {
     bin: agentBin,

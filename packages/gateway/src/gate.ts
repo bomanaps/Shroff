@@ -49,7 +49,8 @@ export function createDeliveryGate(config: DeliveryGateConfig): DeliveryGate {
     try {
       const check = await config.checkFor(context);
       label = check.label ?? check.run.testFile ?? check.run.objective ?? "unnamed";
-      verdict = triage(await runKane(check.run));
+      const surface = check.run.testFile !== undefined ? "testmd" : "run";
+      verdict = triage(await runKane(check.run), surface);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       verdict = infraVerdict(`Verification could not run: ${message}`);

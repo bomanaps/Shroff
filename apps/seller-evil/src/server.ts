@@ -59,10 +59,10 @@ const gate = createDeliveryGate({
     return {
       label: `market-report-delivery[fraud=${fraudMode}]`,
       run: {
-        objective:
-          `open ${deliveryUrl} and verify the page shows a report titled ` +
-          `'Stablecoin Market Snapshot', a table with at least 5 asset rows each ` +
-          `having a price and a 24h change, and a generated-at timestamp`,
+        testFile:
+          ".testmuai/tests/delivered-stablecoin-market-snapshot-page-meets-every-report_test.md",
+        variables: { delivery_url: deliveryUrl },
+        cwd: new URL("..", import.meta.url).pathname,
         timeoutSeconds: KANE_TIMEOUT,
       },
     };

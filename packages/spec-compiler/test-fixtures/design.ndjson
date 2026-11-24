@@ -1,0 +1,64 @@
+{"type":"run_start","v":1,"verb":"design","mode":"agent","trace":"/Users/mercynaps/.testmuai/kaneai/assurance/ctx-21dd85e21be7/logs/design-as-20261119T1559-7pe69bnw.log","use_case":"uc-1","session":"as-20261119T1559-7pe69bnw"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ read source…"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ list sources…"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ search source…"}
+{"type":"usage","v":1,"verb":"design","credits":5.89,"total_credits":5.89}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"checking what the source says"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ read source"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"checking which sources there are"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ list sources"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"searching the source"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ search source"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ propose design…"}
+{"type":"usage","v":1,"verb":"design","credits":1.99,"total_credits":7.88}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"putting the result together"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ propose design"}
+{"type":"commit","v":1,"verb":"design","acs":9,"scenarios":0,"tests":0,"gaps":0,"warnings":0,"minted":[{"temp_ref":"a1","cid":"sha256:2b9a30d47ac8510123fce36bf7e23c5b68cbcb6abce186fc995bd949b0d2a044","logical_id":"ac-1"},{"temp_ref":"a2","cid":"sha256:e9e6d4697fad33f74a1f5fb0101cfbb4f3047739072076586c3bb00b69d67ad6","logical_id":"ac-2"},{"temp_ref":"a3","cid":"sha256:dd1ed03f831650fafc26e47677d6f22928839d82b3d71462dfea06b90da89a2f","logical_id":"ac-3"},{"temp_ref":"a4","cid":"sha256:64f0d2bca0a04bc22a4271494c13d29cf5ea8f2030c19d40a3f917ac90098edd","logical_id":"ac-4"},{"temp_ref":"a5","cid":"sha256:84bde11ebc67cc27ae43c66074455d6e76d1e1d4cda932e89c41fdaa360e758b","logical_id":"ac-5"},{"temp_ref":"a6","cid":"sha256:6999b0552d1405821c1e9defd832e4e9e5da2ccaafb9a91a82be8966592679a4","logical_id":"ac-6"},{"temp_ref":"a7","cid":"sha256:d8924940959df27ebd0de934419fa9f3a027137f8f8cbf3aff51c4b91e442fa7","logical_id":"ac-7"},{"temp_ref":"a8","cid":"sha256:228aea056db36852baa3bd07f524ab3cf11a91b54a8aecba8b751a61e33ec1ae","logical_id":"ac-8"},{"temp_ref":"a9","cid":"sha256:b4535f27a94738e566dac51c6b94ebdcca5b1c858588c73bab7f56ede779f8cd","logical_id":"ac-9"}]}
+{"type":"receipt","v":1,"verb":"design","commit_n":1,"phase":"acs","committed":[{"temp_ref":"a1","cid":"sha256:2b9a30d47ac8510123fce36bf7e23c5b68cbcb6abce186fc995bd949b0d2a044","logical_id":"ac-1"},{"temp_ref":"a2","cid":"sha256:e9e6d4697fad33f74a1f5fb0101cfbb4f3047739072076586c3bb00b69d67ad6","logical_id":"ac-2"},{"temp_ref":"a3","cid":"sha256:dd1ed03f831650fafc26e47677d6f22928839d82b3d71462dfea06b90da89a2f","logical_id":"ac-3"},{"temp_ref":"a4","cid":"sha256:64f0d2bca0a04bc22a4271494c13d29cf5ea8f2030c19d40a3f917ac90098edd","logical_id":"ac-4"},{"temp_ref":"a5","cid":"sha256:84bde11ebc67cc27ae43c66074455d6e76d1e1d4cda932e89c41fdaa360e758b","logical_id":"ac-5"},{"temp_ref":"a6","cid":"sha256:6999b0552d1405821c1e9defd832e4e9e5da2ccaafb9a91a82be8966592679a4","logical_id":"ac-6"},{"temp_ref":"a7","cid":"sha256:d8924940959df27ebd0de934419fa9f3a027137f8f8cbf3aff51c4b91e442fa7","logical_id":"ac-7"},{"temp_ref":"a8","cid":"sha256:228aea056db36852baa3bd07f524ab3cf11a91b54a8aecba8b751a61e33ec1ae","logical_id":"ac-8"},{"temp_ref":"a9","cid":"sha256:b4535f27a94738e566dac51c6b94ebdcca5b1c858588c73bab7f56ede779f8cd","logical_id":"ac-9"}],"reused":0,"rejected":[],"warnings":[],"parity":{"live_scenarios":0,"live_tests":0,"missing":[],"blocked":[],"unresolved_blockers":[]}}
+{"type":"agent_activity","v":1,"verb":"design","kind":"thinking_done","label":"thought for 1.8s"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ drop duplicates…"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ find similar items…"}
+{"type":"usage","v":1,"verb":"design","credits":1.13,"total_credits":9.01}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"working out the scenarios"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ drop duplicates"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"checking a possible duplicate"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ find similar items"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ find edge values…"}
+{"type":"usage","v":1,"verb":"design","credits":0.71,"total_credits":9.72}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"working out the scenarios"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ find edge values"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ combine the options…"}
+{"type":"usage","v":1,"verb":"design","credits":0.62,"total_credits":10.34}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"working out the scenarios"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ combine the options"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ trim to the limit…"}
+{"type":"usage","v":1,"verb":"design","credits":0.76,"total_credits":11.11}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"working out the scenarios"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ trim to the limit"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"thinking_done","label":"thought for 0.8s"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ propose design…"}
+{"type":"usage","v":1,"verb":"design","credits":1.34,"total_credits":12.45}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"putting the result together"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ propose design"}
+{"type":"commit","v":1,"verb":"design","acs":0,"scenarios":1,"tests":0,"gaps":1,"warnings":0,"minted":[{"temp_ref":"s1","cid":"sha256:849047610b7977ae913be66b746fd52279b2a6038adf9bae806f0d891aec0d6f","logical_id":"sc-1"},{"temp_ref":"g1","cid":"sha256:714125b69ab5a7562ea158ba0b10c5681ea72e33becd0892892ac3fdcc3f4ced","logical_id":"gap-1"}]}
+{"type":"receipt","v":1,"verb":"design","commit_n":2,"phase":"scenarios","committed":[{"temp_ref":"s1","cid":"sha256:849047610b7977ae913be66b746fd52279b2a6038adf9bae806f0d891aec0d6f","logical_id":"sc-1"},{"temp_ref":"g1","cid":"sha256:714125b69ab5a7562ea158ba0b10c5681ea72e33becd0892892ac3fdcc3f4ced","logical_id":"gap-1"}],"reused":0,"rejected":[],"warnings":[],"parity":{"live_scenarios":1,"live_tests":0,"missing":["sc-1"],"blocked":[],"unresolved_blockers":[]}}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ propose design…"}
+{"type":"usage","v":1,"verb":"design","credits":1.93,"total_credits":14.38}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"putting the result together"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ propose design"}
+{"type":"commit","v":1,"verb":"design","acs":0,"scenarios":0,"tests":0,"gaps":4,"warnings":0,"minted":[{"temp_ref":"g2","cid":"sha256:a4818bfa41dee217d335928a38793658965ab05e994e4a941134a4393399de20","logical_id":"gap-2"},{"temp_ref":"g3","cid":"sha256:fdb55db87776783c505cd0242d3bef2c094bbca10f57c315b5132f40156fd6f4","logical_id":"gap-3"},{"temp_ref":"g4","cid":"sha256:6d6eb0ada95ac87e4abe21f90184e22041bb99b8303b1aa59c2808625f8bb1f0","logical_id":"gap-4"},{"temp_ref":"g5","cid":"sha256:a9e982c90f34a39bb0c7cbe54a1859bb5176f6d2e5a758fd7369e5b962f94565","logical_id":"gap-5"}]}
+{"type":"receipt","v":1,"verb":"design","commit_n":3,"phase":"wiring","committed":[{"temp_ref":"g2","cid":"sha256:a4818bfa41dee217d335928a38793658965ab05e994e4a941134a4393399de20","logical_id":"gap-2"},{"temp_ref":"g3","cid":"sha256:fdb55db87776783c505cd0242d3bef2c094bbca10f57c315b5132f40156fd6f4","logical_id":"gap-3"},{"temp_ref":"g4","cid":"sha256:6d6eb0ada95ac87e4abe21f90184e22041bb99b8303b1aa59c2808625f8bb1f0","logical_id":"gap-4"},{"temp_ref":"g5","cid":"sha256:a9e982c90f34a39bb0c7cbe54a1859bb5176f6d2e5a758fd7369e5b962f94565","logical_id":"gap-5"}],"reused":0,"rejected":[],"warnings":[],"parity":{"live_scenarios":1,"live_tests":0,"missing":["sc-1"],"blocked":[],"unresolved_blockers":[]}}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ trim to the limit…"}
+{"type":"usage","v":1,"verb":"design","credits":1,"total_credits":15.38}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"working out the scenarios"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ trim to the limit"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"→ propose design…"}
+{"type":"usage","v":1,"verb":"design","credits":1.48,"total_credits":16.86}
+{"type":"agent_activity","v":1,"verb":"design","kind":"decision","label":"putting the result together"}
+{"type":"agent_activity","v":1,"verb":"design","kind":"tool","label":"✓ propose design"}
+{"type":"variables_declared","v":1,"verb":"design","file":"/Users/mercynaps/kane/Shroff/apps/seller-honest/.testmuai/variables/assurance.json","variables":[{"name":"delivery_url","description":"Browser URL for the paid Stablecoin Market Snapshot report delivery, supplied to the verification run.","secret":false,"start_page":true}]}
+{"type":"commit","v":1,"verb":"design","acs":0,"scenarios":0,"tests":1,"gaps":1,"warnings":5,"awaiting_approval":[{"test":"t-1","criterion":"ac-5"},{"test":"t-1","criterion":"ac-6"},{"test":"t-1","criterion":"ac-7"},{"test":"t-1","criterion":"ac-8"},{"test":"t-1","criterion":"ac-9"}],"minted":[{"temp_ref":"g6","cid":"sha256:6da0b0ea2d56ce08d9a419f322201dfa5eeb553fa25c758247e7760151194024","logical_id":"gap-6"},{"temp_ref":"t1","cid":"sha256:d75ee051955222d96a8be766c11939278f465b59da2681141df9904498d292fe","logical_id":"t-1"}]}
+{"type":"receipt","v":1,"verb":"design","commit_n":4,"phase":"tests","committed":[{"temp_ref":"g6","cid":"sha256:6da0b0ea2d56ce08d9a419f322201dfa5eeb553fa25c758247e7760151194024","logical_id":"gap-6"},{"temp_ref":"t1","cid":"sha256:d75ee051955222d96a8be766c11939278f465b59da2681141df9904498d292fe","logical_id":"t-1"}],"reused":0,"rejected":[],"warnings":["T-1 checks AC-5, a criterion not approved yet","T-1 checks AC-6, a criterion not approved yet","T-1 checks AC-7, a criterion not approved yet","T-1 checks AC-8, a criterion not approved yet","T-1 checks AC-9, a criterion not approved yet"],"parity":{"live_scenarios":1,"live_tests":1,"missing":[],"blocked":[],"unresolved_blockers":[]}}
+{"type":"session_complete","v":1,"verb":"design","sid":"design-20261119T155954-5de8e7b8"}
+{"type":"variables_summary","v":1,"verb":"design","file":"/Users/mercynaps/kane/Shroff/apps/seller-honest/.testmuai/variables/assurance.json","variables":[{"name":"delivery_url","description":"Browser URL for the paid Stablecoin Market Snapshot report delivery, supplied to the verification run.","secret":false,"start_page":true}]}
+{"type":"done","v":1,"verb":"design","status":"complete","exit_code":0,"next":[{"cmd":"kane-cli context review --approve ac-5 --mode agent","why":"approves the criterion 1 test checks"},{"cmd":"kane-cli context review --approve ac-6 --mode agent","why":"approves the criterion 1 test checks"},{"cmd":"kane-cli context review --approve ac-7 --mode agent","why":"approves the criterion 1 test checks"},{"cmd":"kane-cli context review --approve ac-8 --mode agent","why":"approves the criterion 1 test checks"},{"cmd":"kane-cli context review --approve ac-9 --mode agent","why":"approves the criterion 1 test checks"}]}
