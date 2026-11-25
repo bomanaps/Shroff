@@ -12,7 +12,8 @@
   "dependencies": {
     "@shroff/gateway": "0.1.0",
     "express": "^4.21.0",
-    "stripe": "^23.2.0"
+    "stripe": "^23.2.0",
+    "@shroff/referee": "0.1.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.0"

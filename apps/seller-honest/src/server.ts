@@ -76,6 +76,7 @@ console.log(`[seller-honest] trusting referee ${referee.refereeId} at ${REFEREE_
 const gate = createRefereeGate(referee, {
   testFile: ACCEPTANCE_TEST,
   getDeliveryUrl,
+  rail: "x402-usdc",
   onVerdict: (signed) => {
     console.log(
       `[shroff] signed verdict=${signed.verdict.kind} settleable=${signed.verdict.settleable} ` +
@@ -87,7 +88,18 @@ const gate = createRefereeGate(referee, {
 const facilitator = new HTTPFacilitatorClient({ url: FACILITATOR_URL });
 const resourceServer = new x402ResourceServer(facilitator)
   .register(NETWORK, new ExactEvmScheme())
-  .onBeforeSettle(gate.hook);
+  .onBeforeSettle(gate.hook)
+  .onAfterSettle(async (context) => {
+    const signed = gate.records.at(-1);
+    if (signed !== undefined) {
+      const result = context.result as { transaction?: string };
+      await referee.reportOutcome(signed.signature, {
+        rail: "x402-usdc",
+        status: "settled",
+        ...(result.transaction !== undefined ? { transaction: result.transaction } : {}),
+      });
+    }
+  });
 
 app.use(
   paymentMiddleware(

@@ -1,0 +1,10 @@
+{
+  "kind": "wait",
+  "status": "passed",
+  "summary": "wait: PRIMARY: inspect the report's generated-at information on the delivered report p",
+  "duration_ms": 6763.2,
+  "url": "http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18",
+  "action_id": "b7f4ff42-8c08-4a46-a544-235e066a14ab",
+  "ordinal": 10,
+  "id": "3-1"
+}

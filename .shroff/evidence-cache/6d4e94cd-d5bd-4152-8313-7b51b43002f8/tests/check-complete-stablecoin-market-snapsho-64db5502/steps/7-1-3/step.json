@@ -1,0 +1,10 @@
+{
+  "kind": "assert",
+  "status": "passed",
+  "summary": "assert: the stablecoin asset table contains at least five asset rows",
+  "duration_ms": 35.8,
+  "url": "http://localhost:4023/report/view/78459cbd-f927-4738-a7f2-042138050b88",
+  "action_id": "1b1f54b7-31d7-421d-8dbe-ef392c79a821",
+  "ordinal": 7,
+  "id": "1-3"
+}

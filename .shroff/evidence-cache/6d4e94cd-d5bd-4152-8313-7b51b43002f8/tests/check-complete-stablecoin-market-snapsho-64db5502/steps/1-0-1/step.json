@@ -1,0 +1,10 @@
+{
+  "kind": "navigate",
+  "status": "passed",
+  "summary": "navigate: Navigate to {{global.delivery_url}}",
+  "duration_ms": 160.2,
+  "url": "https://kaneai-playground.lambdatest.io/",
+  "action_id": "8d5d6b06-a582-4eeb-8dde-2301291cbf86",
+  "ordinal": 1,
+  "id": "0-1"
+}

@@ -1,0 +1,34 @@
+step: 0-4
+status: failed
+error:
+  message: 'assertion_failed: @ step 4'
+  type: replay_failure
+page_state:
+  url: http://localhost:4022/report/view/425963ff-6688-4b47-9f80-7d872d70dc6f
+  screenshot: steps/4-0-4/screenshot.jpg
+locator_context:
+  replay_reason: 'assertion_failed: @ step 4'
+console_at_failure:
+  ref: logs/0-console.ndjson
+  step: 0-4
+network_at_failure:
+  ref: logs/0-network.har
+  step: 0-4
+title: Delivered report URL renders unrelated horoscope page
+triage:
+  status: triaged
+  by:
+    kind: agent
+    id: v16-investigation/replay
+    at: '2026-11-25T01:37:01.512614+00:00'
+  rca:
+    root_cause: The report address is sending the browser to the wrong page, and a
+      requested resource is missing.
+    category: application_issue/navigation_defect
+    confidence: 0.93
+  verification:
+    status: not_verified
+  severity: major
+  suggested_fix:
+    summary: Check the routing and report lookup for this delivery URL, restore the
+      missing resource, and ensure it displays the intended report title.

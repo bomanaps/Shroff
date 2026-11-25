@@ -1,0 +1,25 @@
+evidence: '0.1'
+run_id: 736e10dd-f686-4366-badc-1dd2eb2095d4
+status: finalized
+title: Check complete Stablecoin Market Snapshot at the delivery URL
+started: 2026-11-25T01:53:34.179Z
+environment:
+  producer:
+    name: kane-cli
+    version: 0.10.6
+  run_kind: author
+  origin: testmd
+  pid: 77154
+  saved: true
+metrics_catalog:
+  id: kane-cli
+  version: 1
+  sha256: 9774e11a8a2240448d765bd4ad8eb1cf6c0444937e72050588b597539c890e77
+  source: bundled
+ended: 2026-11-25T01:55:13.286Z
+totals:
+  tests: 1
+  passed: 1
+  failed: 0
+  broken: 0
+  skipped: 0

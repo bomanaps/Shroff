@@ -1,0 +1,10 @@
+{
+  "kind": "analyze",
+  "status": "passed",
+  "summary": "analyze: Checking whether every asset row displays a 24h change value",
+  "duration_ms": 100.6,
+  "url": "http://localhost:4021/report/view/86be5278-cf34-4490-b994-1b935659a598",
+  "action_id": "5974d86b-92cb-4a9f-9372-8b177f9125e0",
+  "ordinal": 10,
+  "id": "2-3"
+}

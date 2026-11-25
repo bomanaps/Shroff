@@ -1,0 +1,10 @@
+[2026-11-25 03:00:45] [INFO] v16_runner.replay_harness: replay start: recording=/Users/mercynaps/kane/Shroff/apps/seller-honest/.testmuai/tests/output-check-complete-stablecoin-market-snapshot-at-the-delivery/.internal/steps/3-c06b41d8/flows/0/actions.ndjson flow=1/1 steps=3 run_dir=/Users/mercynaps/.testmuai/kaneai/sessions/6d4e94cd-d5bd-4152-8313-7b51b43002f8/scratch/2/replay-test
+[2026-11-25 03:00:45] [testmu]   [STEP 5] whether every asset row in the stablecoin market table has a nonempty price cell
+[2026-11-25 03:00:45] [testmu]     [set_var] name='asset_rows_price_value_check' value=true
+[2026-11-25 03:00:45] [testmu]   [STEP 6] whether every asset row in the stablecoin market table has a nonempty 24h change cell
+[2026-11-25 03:00:45] [testmu]     [set_var] name='asset_rows_24h_change_value_check' value=true
+[2026-11-25 03:00:45] [testmu]   [STEP 7] Assertion check
+[2026-11-25 03:00:45] [testmu]     [assertion] deterministic claim=Assertion check
+[2026-11-25 03:00:45] [testmu]     [var] {{asset_rows_price_value_check}} → true
+[2026-11-25 03:00:45] [testmu]     [var] {{asset_rows_24h_change_value_check}} → true
+[2026-11-25 03:00:45] [testmu]     [assertion] result status=passed

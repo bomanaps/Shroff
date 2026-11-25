@@ -1,0 +1,10 @@
+{
+  "kind": "assert",
+  "status": "passed",
+  "summary": "assert: a generated-at timestamp is shown",
+  "duration_ms": 35.4,
+  "url": "http://localhost:4023/report/view/78459cbd-f927-4738-a7f2-042138050b88",
+  "action_id": "2dbb53de-38d1-418e-a6a1-6ac3f4e057de",
+  "ordinal": 13,
+  "id": "3-3"
+}

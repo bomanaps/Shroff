@@ -1,9 +1,17 @@
 import { verifySignedVerdict, type SignedVerdict } from "./signing.js";
 
+export interface OutcomeReport {
+  rail: string;
+  status: "settled" | "refused" | "captured" | "cancelled";
+  transaction?: string;
+  detail?: string;
+}
+
 export interface RefereeClient {
   refereeId: string;
   publicKeyPem: string;
-  verify: (deliveryUrl: string, testFile: string) => Promise<SignedVerdict>;
+  verify: (deliveryUrl: string, testFile: string, rail?: string) => Promise<SignedVerdict>;
+  reportOutcome: (signature: string, outcome: OutcomeReport) => Promise<void>;
 }
 
 export async function connectReferee(baseUrl: string): Promise<RefereeClient> {
@@ -19,11 +27,11 @@ export async function connectReferee(baseUrl: string): Promise<RefereeClient> {
   return {
     refereeId: identity.referee_id,
     publicKeyPem: identity.public_key,
-    verify: async (deliveryUrl, testFile) => {
+    verify: async (deliveryUrl, testFile, rail) => {
       const response = await fetch(`${baseUrl}/verify`, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ delivery_url: deliveryUrl, test_file: testFile }),
+        body: JSON.stringify({ delivery_url: deliveryUrl, test_file: testFile, rail }),
       });
       if (!response.ok) {
         const body = await response.text();
@@ -34,6 +42,13 @@ export async function connectReferee(baseUrl: string): Promise<RefereeClient> {
         throw new Error("referee returned a verdict with an INVALID signature");
       }
       return signed;
+    },
+    reportOutcome: async (signature, outcome) => {
+      await fetch(`${baseUrl}/outcome`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ signature, ...outcome }),
+      }).catch(() => undefined);
     },
   };
 }

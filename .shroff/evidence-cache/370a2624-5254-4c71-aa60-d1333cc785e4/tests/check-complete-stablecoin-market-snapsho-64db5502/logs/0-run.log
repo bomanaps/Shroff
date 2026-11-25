@@ -1,0 +1,111 @@
+[2026-11-25 02:53:41] [testmu]   [STEP 1] Navigate to {{global.delivery_url}}
+
+============================================================
+  Starting Browser Runner: view the delivered report page, then assert the visible report title equals "Stablecoin Market Snapshot".
+============================================================
+
+⏱️  [browser_startup] completed in 0.000s
+[BrowserRunner] [Codegen] Imported codegen pipeline successfully
+[BrowserRunner] [Codegen] ActionExecutor attached to browser, tracing to: screenshots
+[BrowserRunner] Custom event dispatcher enabled: @v16 → child agent, @v16-until → retry loop
+[BrowserRunner] [Codegen] Re-pointed to session dir: /var/folders/8d/w7mgw7xs6073s9z1yzmv8plc0000gn/T/v16-run-0-o5s0n3mm/run-test
+[BrowserRunner] cm_init_parallel: starting LLM extraction
+[BrowserRunner] Starting-Node: CM-Init (Checkpoint Extraction)
+[BrowserRunner] Starting-Node: navigate Step: 1 -> {{global.delivery_url}}
+
+──────────────────────────────────────────────────
+  Step 1/50
+──────────────────────────────────────────────────
+⏱️  [step_1_navigate] completed in 0.056s
+⏱️  [step_1_screenshot] completed in 0.107s
+⏱️  [step_1_accessibility] completed in 0.038s
+⏱️  [step_1_total] completed in 0.206s
+[BrowserRunner] CM-Init: 1 v3 (NL-only) checkpoint(s)
+[BrowserRunner]   cp_1: "the visible report title equals "Stablecoin Market Snapshot""
+    sub_assertions (and): visible_report_title_check=None
+[BrowserRunner] CM-Init: cp_1 verify_after_step=1
+[BrowserRunner] CM-Init: Structured objective (1 steps, 0 constraints)
+[BrowserRunner] Screenshot: Waiting 500ms for page to settle
+[BrowserRunner] Starting-Node: screenshot Step: 2
+
+──────────────────────────────────────────────────
+  Step 2/50
+──────────────────────────────────────────────────
+⏱️  [step_2_screenshot] completed in 0.054s
+⏱️  [step_2_ax_document] completed in 0.036s
+[BrowserRunner] AX document: 53 referenceable elements
+⏱️  [step_2_accessibility] completed in 0.038s
+[BrowserRunner] Starting-Node: CM (Checkpoint Manager) Step: 2
+[BrowserRunner] CM: 1 checkpoints, 1 pending
+[BrowserRunner] CM:REPORT    all_passed=False, passed=[], failed=[]
+[BrowserRunner] CM: no assertion this step
+[BrowserRunner] AP(text): digest_screenshot shrink b64_bytes 58632 -> 7100
+[BrowserRunner] Starting-Node: AP text-mode (pull loop) Step: 2
+[BrowserRunner] Starting-Node: PM (Page Manager) Step: 2
+[BrowserRunner] PM: Analyzing 2 screenshots
+⏱️  [step_2_page_observer_api] completed in 2.644s
+[BrowserRunner] PM: complete | blocker=none | confidence=1.00
+[BrowserRunner] AP(text): api_call step=2 call_index=0 thread_start=True duration_ms=3055 image_b64_bytes=7100
+[BrowserRunner] AP(text) decision: continue - The delivered report page is open and its visible title is shown.
+[BrowserRunner] AP(text) action: wait - PRIMARY: View the delivered report page
+[BrowserRunner] Merge: ap_direct (wait) — Tier 3
+[BrowserRunner] Starting-Node: action Step: 2
+[BrowserRunner] Action: Executing wait
+⏱️  [step_2_action] completed in 1.026s
+⏱️  [step_2_total] completed in 4.239s
+[BrowserRunner] Action: wait completed - Waited 1000ms
+[BrowserRunner] Screenshot: Waiting 500ms for page to settle
+[BrowserRunner] Starting-Node: screenshot Step: 3
+
+──────────────────────────────────────────────────
+  Step 3/50
+──────────────────────────────────────────────────
+⏱️  [step_3_screenshot] completed in 0.054s
+⏱️  [step_3_ax_document] completed in 0.021s
+[BrowserRunner] AX document: 53 referenceable elements
+⏱️  [step_3_accessibility] completed in 0.023s
+[BrowserRunner] Starting-Node: CM (Checkpoint Manager) Step: 3
+[BrowserRunner] CM: 1 checkpoints, 1 pending
+[BrowserRunner] CM: completed task steps: [1]
+[BrowserRunner] CM:REPORT    all_passed=False, passed=[], failed=[]
+[BrowserRunner] CM: no assertion this step
+[BrowserRunner] Starting-Node: AP text-mode (pull loop) Step: 3
+[BrowserRunner] Starting-Node: PM (Page Manager) Step: 3
+[BrowserRunner] PM: Analyzing 2 screenshots
+⏱️  [step_3_page_observer_api] completed in 2.611s
+[BrowserRunner] PM: complete | blocker=none | confidence=1.00
+[BrowserRunner] AP(text): api_call step=3 call_index=0 thread_start=False duration_ms=3108 image_b64_bytes=0
+[BrowserRunner] AP(text) decision: continue - The report page is loaded and the task step is complete, so verify its displayed title.
+[BrowserRunner] AP(text) action: analyze - PRIMARY: the visible report title equals "Stablecoin Market Snapshot"; role=heading | HINTS: position=top-left; container=report page
+[BrowserRunner] Merge: ap_analyze (analyze) — Tier 3
+[BrowserRunner] Starting-Node: analyzer_v3 Step: 3 keys=['visible_report_title_check']
+⏱️  [step_3_analyze_v3] completed in 2.067s
+[BrowserRunner] Analyzer(v3): turns=1 tools=['finalize_value'] committed=1 failed=0 provider_ms=2019 tool_ms=42 total_ms=2067
+[BrowserRunner] Analyzer(v3):   finalize_value('visible_report_title_check') -> value: 'Stablecoin Market Snapshot' -> 'Stablecoin Market Snapshot'; equals 'Stablecoin Market Snapshot' -> PASS -> committed
+[BrowserRunner] Analyzer(v3): stored store['visible_report_title_check'] = 'Stablecoin Market Snapshot' (op='equals', type=title)
+[BrowserRunner] Screenshot: Waiting 500ms for page to settle
+[BrowserRunner] Starting-Node: screenshot Step: 4
+
+──────────────────────────────────────────────────
+  Step 4/50
+──────────────────────────────────────────────────
+⏱️  [step_4_screenshot] completed in 0.043s
+⏱️  [step_4_ax_document] completed in 0.137s
+[BrowserRunner] AX document: 53 referenceable elements
+⏱️  [step_4_accessibility] completed in 0.139s
+[BrowserRunner] Starting-Node: CM (Checkpoint Manager) Step: 4
+[BrowserRunner] CM: 1 checkpoints, 1 pending
+[BrowserRunner] CM: completed task steps: [1]
+[BrowserRunner] CM:DECIDE    trigger cp_1 (composite=and, is_final=True)
+[BrowserRunner] CM:REPORT    all_passed=False, passed=[], failed=[]
+[BrowserRunner] CM: assertion request for cp_1
+[BrowserRunner] Starting-Node: assertion Step: 4
+[BrowserRunner] ASSERT: Step 4 — Path A (store-based), cp=cp_1, is_final=True
+[BrowserRunner] ASSERT:SUB[0] PASS — op=equals extracted='{{visible_report_title_check}}' expected='Stablecoin Market Snapshot' actual='Stablecoin Market Snapshot'
+[BrowserRunner] ASSERT: Step 4 — PASSED (AND)
+[BrowserRunner] ✓ ASSERT: Claim verified at step 4
+[BrowserRunner] ✓ ASSERT: Final verification PASSED — objective achieved
+[BrowserRunner] [summary] one_liner='viewed the delivered report on localhost'
+⏱️  [graph_execution] completed in 16.034s
+[BrowserRunner] ✓ Objective completed in 4 steps
+⏱️  [total_execution] completed in 16.317s

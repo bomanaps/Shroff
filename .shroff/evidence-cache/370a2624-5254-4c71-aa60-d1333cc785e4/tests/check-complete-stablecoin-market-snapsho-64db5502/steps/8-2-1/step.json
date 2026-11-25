@@ -1,0 +1,14 @@
+{
+  "kind": "analyze",
+  "status": "passed",
+  "summary": "analyze: every asset row shows a 24h change value",
+  "duration_ms": 14449.3,
+  "url": "http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18",
+  "action_id": "7c81211c-db3d-4f19-bdd8-dd6c0ce92f78",
+  "analyze_action_ids": [
+    "953d9513-5c07-4b71-a242-05ac64796af6",
+    "7c81211c-db3d-4f19-bdd8-dd6c0ce92f78"
+  ],
+  "ordinal": 8,
+  "id": "2-1"
+}

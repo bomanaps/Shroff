@@ -1,0 +1,7 @@
+[2026-11-25 01:55:00] [INFO] v16_runner.replay_harness: replay start: recording=/Users/mercynaps/kane/Shroff/apps/seller-honest/.testmuai/tests/output-check-complete-stablecoin-market-snapshot-at-the-delivery/.internal/steps/1-a4cf92a8/flows/0/actions.ndjson flow=1/1 steps=4 run_dir=/Users/mercynaps/.testmuai/kaneai/sessions/027cf88f-f7aa-4a1c-bb55-9289361bb108/scratch/0/replay-test
+[2026-11-25 01:55:00] [testmu]   [STEP 1] Navigate to {{global.delivery_url}}
+[2026-11-25 01:55:01] [testmu]     [set_var] name='visible_report_title_check' value=Stablecoin Market Snapshot
+[2026-11-25 01:55:01] [testmu]   [STEP 2] Assertion check
+[2026-11-25 01:55:01] [testmu]     [assertion] deterministic claim=Assertion check
+[2026-11-25 01:55:01] [testmu]     [var] {{visible_report_title_check}} → Stablecoin Market Snapshot
+[2026-11-25 01:55:01] [testmu]     [assertion] result status=passed

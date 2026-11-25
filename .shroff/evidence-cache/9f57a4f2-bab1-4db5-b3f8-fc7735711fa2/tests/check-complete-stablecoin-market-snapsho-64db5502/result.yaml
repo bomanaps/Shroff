@@ -1,0 +1,64 @@
+evidence: '0.1'
+test: check-complete-stablecoin-market-snapsho-64db5502
+status: failed
+duration_ms: 56198
+attempts:
+  - status: failed
+  - status: failed
+    duration_ms: 56198
+flaky: false
+adaptive_heal:
+  triggered: true
+  outcome: exhausted
+  shrink_count: 1
+  complete_reauthor: true
+  author_boundary: 0
+  total_steps: 4
+  reauthored_steps: 4
+  credits_consumed: 11.38
+  attempts:
+    - 'n': 1
+      status: failed
+      failed_at: 0
+      failure: 1/steps/4-0-4/failure.yaml
+definition:
+  path: test.md
+  sha256: sha256:6c7c24fcad7bc65ed413f9c5bc4fdbeba76ed3109fe895564f0ac68168b0c6d4
+definition_id: sha256:4c3359ffae43ed6d40d7d97468838b242299c81bdb0fbecf495bb10e3cbba710
+assurance_id: t-1
+assurance_base: sha256:4c3359ffae43ed6d40d7d97468838b242299c81bdb0fbecf495bb10e3cbba710
+external_id:
+  execution_id: 21bc8330-97e3-421c-98bc-e6c158651405
+  session_id: 9f57a4f2-bab1-4db5-b3f8-fc7735711fa2
+  commit_id: 9f57a4f2-bab1-4db5-b3f8-fc7735711fa2
+  test_id: ae365569-d6be-45ff-b810-ea8015af7877
+  testcase_id: 01M7T8NQKG4WNSDADT3DXPTP8N
+  project_id: 01M7T2KS79H2BHB1JK2SCEYNMR
+  folder_id: 01M7T2KTQHRAVYBTKYQCM46YBG
+  org_id: '3441309'
+  session_name: check-complete-stablecoin-market-snapshot-at-the-delivery
+  user_name: mercyboma35
+  user_email: mercy.boma35@yahoo.com
+environment:
+  model: v16-alpha
+  os: macOS
+  browser: Chrome
+  browser_version: '158'
+  resolution: 1920x1080
+  platform: Desktop
+  platform_type: web
+  os_version: '26.2'
+steps:
+  - id: 0-1
+    ordinal: 1
+    status: passed
+    kind: navigate
+    duration_ms: 0
+    action_id: 80aa4796-58da-4dd7-86fd-b1d83e4f9a4f
+    verifies: &ref_0
+      - ac-5
+  - id: 0-2
+    ordinal: 2
+    status: failed
+    duration_ms: 5700
+    verifies: *ref_0

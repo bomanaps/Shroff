@@ -1,0 +1,10 @@
+{
+  "kind": "analyze",
+  "status": "passed",
+  "summary": "analyze: Counting asset rows in the stablecoin table",
+  "duration_ms": 87.2,
+  "url": "http://localhost:4021/report/view/13c1f90e-0940-49b0-b445-cc94a9730985",
+  "action_id": "a7a81097-54f0-432c-bdd2-24e248d81382",
+  "ordinal": 6,
+  "id": "1-2"
+}

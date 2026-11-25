@@ -1,0 +1,10 @@
+{
+  "kind": "assert",
+  "status": "passed",
+  "summary": "assert: every asset row shows a price value and every asset row shows a 24h change value",
+  "duration_ms": 27.4,
+  "url": "http://localhost:4023/report/view/78459cbd-f927-4738-a7f2-042138050b88",
+  "action_id": "2f14903d-1536-4313-a1cf-d89e031247e7",
+  "ordinal": 10,
+  "id": "2-3"
+}

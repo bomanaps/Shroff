@@ -1,0 +1,10 @@
+{
+  "kind": "wait",
+  "status": "passed",
+  "summary": "wait: Waiting for the delivered report page to show the generated-at information",
+  "duration_ms": 1047.1,
+  "url": "http://localhost:4021/report/view/86be5278-cf34-4490-b994-1b935659a598",
+  "action_id": "ea9037d3-953f-4c1e-a544-4a3cbacbc2c1",
+  "ordinal": 12,
+  "id": "3-1"
+}

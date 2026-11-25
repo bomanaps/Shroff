@@ -1,0 +1,10 @@
+{
+  "kind": "",
+  "status": "failed",
+  "summary": "wait: Waiting after checking the delivered report page",
+  "duration_ms": 5671.8,
+  "url": "http://localhost:4022/report/view/425963ff-6688-4b47-9f80-7d872d70dc6f",
+  "action_id": "80aa4796-58da-4dd7-86fd-b1d83e4f9a4f",
+  "ordinal": 2,
+  "id": "0-2"
+}

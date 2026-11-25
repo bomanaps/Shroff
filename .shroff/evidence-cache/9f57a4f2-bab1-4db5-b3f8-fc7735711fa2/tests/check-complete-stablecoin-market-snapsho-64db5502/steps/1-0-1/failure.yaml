@@ -1,0 +1,32 @@
+step: 0-1
+status: broken
+error:
+  message: The report URL displays only a horoscope page with no report controls or
+    Stablecoin title.
+page_state:
+  url: http://localhost:4022/report/view/425963ff-6688-4b47-9f80-7d872d70dc6f
+  screenshot: steps/1-0-1/screenshot.jpg
+console_at_failure:
+  ref: logs/0-console.ndjson
+  step: 0-1
+network_at_failure:
+  ref: logs/0-network.har
+  step: 0-1
+title: Delivery URL points to horoscope page
+triage:
+  status: triaged
+  by:
+    kind: agent
+    id: v16-investigation/terminal
+    at: '2026-11-25T01:37:32.564257+00:00'
+  rca:
+    root_cause: The test was given the wrong report link or an outdated report identifier.
+      The page itself loaded successfully, but it was not the report the check expected.
+    category: automation_bug/config_issue
+    confidence: 0.91
+  verification:
+    status: not_verified
+  severity: major
+  suggested_fix:
+    summary: Verify the delivery URL and report ID for this run, then regenerate or
+      update the test data so it points to the report titled "Stablecoin Market Snapshot".

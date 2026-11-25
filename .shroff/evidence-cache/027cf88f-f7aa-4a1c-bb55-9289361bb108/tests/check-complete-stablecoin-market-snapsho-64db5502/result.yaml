@@ -1,0 +1,135 @@
+evidence: '0.1'
+test: check-complete-stablecoin-market-snapsho-64db5502
+status: passed
+duration_ms: 13633
+definition:
+  path: test.md
+  sha256: sha256:6c7c24fcad7bc65ed413f9c5bc4fdbeba76ed3109fe895564f0ac68168b0c6d4
+definition_id: sha256:4c3359ffae43ed6d40d7d97468838b242299c81bdb0fbecf495bb10e3cbba710
+assurance_id: t-1
+assurance_base: sha256:4c3359ffae43ed6d40d7d97468838b242299c81bdb0fbecf495bb10e3cbba710
+external_id:
+  execution_id: 37cb82e4-351f-46fe-8457-903f222a2dae
+  session_id: 027cf88f-f7aa-4a1c-bb55-9289361bb108
+  commit_id: 9efc5c95-d914-4658-b7e2-2f298b756485
+  test_id: ae365569-d6be-45ff-b810-ea8015af7877
+  testcase_id: 01M7T8NQKG4WNSDADT3DXPTP8N
+  project_id: 01M7T2KS79H2BHB1JK2SCEYNMR
+  folder_id: 01M7T2KTQHRAVYBTKYQCM46YBG
+  org_id: '3441309'
+  session_name: check-complete-stablecoin-market-snapshot-at-the-delivery
+  user_name: mercyboma35
+  user_email: mercy.boma35@yahoo.com
+environment:
+  model: v16-alpha
+  os: macOS
+  browser: Chrome
+  browser_version: '158'
+  resolution: 1920x1080
+  platform: Desktop
+  platform_type: web
+  os_version: '26.2'
+steps:
+  - id: 0-1
+    ordinal: 1
+    status: passed
+    kind: navigate
+    duration_ms: 300
+    action_id: 19d9f025-3df4-4498-a037-61df97d1b647
+    verifies: &ref_0
+      - ac-5
+  - id: 0-2
+    ordinal: 2
+    status: passed
+    kind: wait
+    duration_ms: 1100
+    action_id: 384907f2-3873-450c-8e4f-a01e0fd0e9f2
+    verifies: *ref_0
+  - id: 0-3
+    ordinal: 3
+    status: passed
+    kind: analyze
+    duration_ms: 100
+    action_id: c76152da-b89a-4f0b-8c9d-824823d578b4
+    verifies: *ref_0
+  - id: 0-4
+    ordinal: 4
+    status: passed
+    kind: assert
+    duration_ms: 0
+    action_id: 50362190-8ff5-43de-aff5-3827d017e97a
+    verifies: *ref_0
+  - id: 1-1
+    ordinal: 5
+    status: passed
+    kind: wait
+    duration_ms: 1000
+    action_id: 27c6377c-3d90-440f-a665-21e4740afbc4
+    verifies: &ref_1
+      - ac-6
+  - id: 1-2
+    ordinal: 6
+    status: passed
+    kind: analyze
+    duration_ms: 100
+    action_id: a7a81097-54f0-432c-bdd2-24e248d81382
+    verifies: *ref_1
+  - id: 1-3
+    ordinal: 7
+    status: passed
+    kind: assert
+    duration_ms: 0
+    action_id: 95ba6349-6425-4a6a-82a5-e84bd7f8c930
+    verifies: *ref_1
+  - id: 2-1
+    ordinal: 8
+    status: passed
+    kind: wait
+    duration_ms: 1000
+    action_id: 45058558-1c0d-4d83-9917-4d0f6eb08fec
+    verifies: &ref_2
+      - ac-7
+      - ac-8
+  - id: 2-2
+    ordinal: 9
+    status: passed
+    kind: analyze
+    duration_ms: 100
+    action_id: 8973b19f-17e1-4354-85e2-2d6faaa3b3a4
+    verifies: *ref_2
+  - id: 2-3
+    ordinal: 10
+    status: passed
+    kind: analyze
+    duration_ms: 100
+    action_id: 5974d86b-92cb-4a9f-9372-8b177f9125e0
+    verifies: *ref_2
+  - id: 2-4
+    ordinal: 11
+    status: passed
+    kind: assert
+    duration_ms: 0
+    action_id: 338dd3ac-3bba-4461-826a-35fb405d0bdd
+    verifies: *ref_2
+  - id: 3-1
+    ordinal: 12
+    status: passed
+    kind: wait
+    duration_ms: 1000
+    action_id: ea9037d3-953f-4c1e-a544-4a3cbacbc2c1
+    verifies: &ref_3
+      - ac-9
+  - id: 3-2
+    ordinal: 13
+    status: passed
+    kind: analyze
+    duration_ms: 100
+    action_id: 3ac91e56-b666-4090-b6d0-7d55525edfdb
+    verifies: *ref_3
+  - id: 3-3
+    ordinal: 14
+    status: passed
+    kind: assert
+    duration_ms: 0
+    action_id: ab27b87f-01ce-404f-8fb3-8eb62e47edc3
+    verifies: *ref_3

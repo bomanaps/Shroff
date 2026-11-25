@@ -1,0 +1,13 @@
+generated: 2026-11-25T01:37:33.836Z
+totals:
+  failures: 1
+  triaged: 1
+  untriaged: 0
+failures:
+  - test: check-complete-stablecoin-market-snapsho-64db5502
+    ordinal: 1
+    step: 0-1
+    status: broken
+    path: tests/check-complete-stablecoin-market-snapsho-64db5502/steps/1-0-1/failure.yaml
+    title: Delivery URL points to horoscope page
+    triage_status: triaged

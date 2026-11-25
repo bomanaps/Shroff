@@ -1,0 +1,48 @@
+{
+  "run_id": "run",
+  "test_id": "test",
+  "objective": "On the delivered report page, inspect every row of the stablecoin asset table, then assert every asset row shows a price value and every asset row shows a 24h change value.",
+  "start_url": "about:blank",
+  "start_time": "2026-11-25T01:54:24.045361+00:00",
+  "config": {
+    "reasoning_provider": "testmuai",
+    "reasoning_model": "v16-alpha",
+    "vision_provider": "testmuai",
+    "vision_model": "v16-alpha",
+    "screen_width": 1920,
+    "screen_height": 1080,
+    "max_steps": 50
+  },
+  "credits_consumed": 12.343372500000001,
+  "steps": [
+    {
+      "step": 1,
+      "duration_ms": 14447.8,
+      "url": "http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18",
+      "status": "continue",
+      "step_file": "step_001.json",
+      "action_type": "analyze",
+      "action_target": "ANALYZE(textual_visual, 'every asset row shows a 24h change value', key='asset_r",
+      "success": true,
+      "method": "action"
+    },
+    {
+      "step": 2,
+      "duration_ms": 4.7,
+      "url": "http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18",
+      "status": "passed",
+      "step_file": "step_002.json",
+      "action_type": "assert",
+      "action_target": "every asset row shows a price value and every asset row shows a 24h change value",
+      "success": true,
+      "method": "assertion"
+    }
+  ],
+  "errors": [],
+  "end_time": "2026-11-25T01:54:46.793216+00:00",
+  "total_duration_ms": 0,
+  "final_status": "complete",
+  "final_url": "http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18",
+  "total_steps": 2,
+  "reason": "Objective completed"
+}

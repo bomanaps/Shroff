@@ -1,0 +1,10 @@
+{
+  "kind": "analyze",
+  "status": "passed",
+  "summary": "analyze: Checking whether the generated-at timestamp is present",
+  "duration_ms": 76.1,
+  "url": "http://localhost:4023/report/view/78459cbd-f927-4738-a7f2-042138050b88",
+  "action_id": "32886144-5164-4e77-8803-42780e955da0",
+  "ordinal": 12,
+  "id": "3-2"
+}

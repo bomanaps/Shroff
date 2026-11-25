@@ -1,0 +1,10 @@
+{
+  "kind": "wait",
+  "status": "passed",
+  "summary": "wait: Waiting for Stablecoin Market Snapshot report page to load",
+  "duration_ms": 1101.2,
+  "url": "http://localhost:4021/report/view/86be5278-cf34-4490-b994-1b935659a598",
+  "action_id": "384907f2-3873-450c-8e4f-a01e0fd0e9f2",
+  "ordinal": 2,
+  "id": "0-2"
+}

@@ -10,6 +10,7 @@ export type VerificationPolicy =
 export interface RefereeGateConfig {
   testFile: string;
   getDeliveryUrl: () => string;
+  rail?: string;
   onVerdict?: (signed: SignedVerdict) => void;
   maxRecords?: number;
   policy?: VerificationPolicy;
@@ -47,7 +48,7 @@ export function createRefereeGate(client: RefereeClient, config: RefereeGateConf
     settlementCount++;
     let signed: SignedVerdict;
     try {
-      signed = await client.verify(config.getDeliveryUrl(), config.testFile);
+      signed = await client.verify(config.getDeliveryUrl(), config.testFile, config.rail);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       return { abort: true, reason: "delivery_unverified", message };
@@ -66,6 +67,11 @@ export function createRefereeGate(client: RefereeClient, config: RefereeGateConf
     if (signed.verdict.settleable) {
       return;
     }
+    void client.reportOutcome(signed.signature, {
+      rail: config.rail ?? "unknown",
+      status: "refused",
+      detail: signed.verdict.summary,
+    });
     return {
       abort: true,
       reason: signed.verdict.disputable ? "delivery_failed" : "delivery_unverified",

@@ -1,0 +1,129 @@
+[2026-11-25 01:53:30] SESSION START session_id=370a2624-5254-4c71-aa60-d1333cc785e4
+[2026-11-25 01:53:30] CONFIG model=v16-alpha env=prod profile=mercy
+[2026-11-25 01:53:30] SCREENSHOT_SAS_OK Screenshot SAS fetched {"base_url":"https://prodauteurartefacts.blob.core.windows.net","container":"test-screenshots","expiry":"2026-11-25T02:53:30Z"}
+[2026-11-25 01:53:30] GATE_VALIDATE TMS project/folder validation {"project":"ok","folder":"ok","folder_was_cached":true}
+[2026-11-25 01:53:33] PIPELINE_GATE_STATE Initial gate state (run-start) {"phase":"run-start","shouldUploadArtifacts":true,"lockHeld":true,"isFirstRun":false,"hasAuth":true}
+[2026-11-25 01:53:34] VAR_SUMMARY Variables pushed {"vars_pushed":1,"vars_failed":0,"secrets_pushed":0,"secrets_failed":0}
+[2026-11-25 01:53:41] STEP_START Step 1 started {"index":1,"objective":"Step 1"}
+[2026-11-25 01:53:41] STEP_EVENT Step 1 screenshot {"index":1,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:53:41] STEP_EVENT Step 1 action {"index":1,"phase":"action","action_type":"navigate","detail":"Navigate to {{global.delivery_url}}"}
+[2026-11-25 01:53:41] STEP_EVENT Step 1 reasoning {"index":1,"phase":"reasoning","action_type":"navigate","detail":"Navigate to {{global.delivery_url}}"}
+[2026-11-25 01:53:41] STEP_END Step 1 passed {"index":1,"status":"passed","duration":0,"summary":"navigate: Navigate to {{global.delivery_url}}"}
+[2026-11-25 01:53:41] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":1,"id":"0-1","action_id":"8d5d6b06-a582-4eeb-8dde-2301291cbf86","action_ids":["8d5d6b06-a582-4eeb-8dde-2301291cbf86"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:53:43] STEP_EVENT Step 1 cm_init {"index":1,"phase":"cm_init","detail":"extracted 1 checkpoints"}
+[2026-11-25 01:53:44] STEP_START Step 2 started {"index":2,"objective":"Step 2"}
+[2026-11-25 01:53:44] STEP_EVENT Step 2 screenshot {"index":2,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:53:44] STEP_EVENT Step 2 evaluation {"index":2,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:53:47] STEP_EVENT Step 2 page_manager {"index":2,"phase":"page_manager","detail":"blocked: none"}
+[2026-11-25 01:53:47] STEP_EVENT Step 2 reasoning {"index":2,"phase":"reasoning","action_type":"wait","detail":"Waiting View the delivered report page"}
+[2026-11-25 01:53:48] STEP_EVENT Step 2 action {"index":2,"phase":"action","action_type":"wait","detail":"Waiting for the delivered report page to load"}
+[2026-11-25 01:53:48] STEP_EVENT Step 2 reasoning {"index":2,"phase":"reasoning","action_type":"wait","detail":"Waiting for the delivered report page to load"}
+[2026-11-25 01:53:48] STEP_END Step 2 passed {"index":2,"status":"passed","duration":4.2,"summary":"wait: PRIMARY: View the delivered report page"}
+[2026-11-25 01:53:48] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":2,"id":"0-2","action_id":"121e1ab7-09a1-490f-8511-c54054991c91","action_ids":["121e1ab7-09a1-490f-8511-c54054991c91"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:53:49] STEP_START Step 3 started {"index":3,"objective":"Step 3"}
+[2026-11-25 01:53:49] STEP_EVENT Step 3 screenshot {"index":3,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:53:49] STEP_EVENT Step 3 evaluation {"index":3,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:53:51] STEP_EVENT Step 3 page_manager {"index":3,"phase":"page_manager","detail":"blocked: none"}
+[2026-11-25 01:53:52] STEP_EVENT Step 3 reasoning {"index":3,"phase":"reasoning","action_type":"analyze","detail":"Reading PRIMARY: the visible report title equals \"Stablecoin Market Snapshot\"; role=heading | HINTS: position=top-left; container=report page"}
+[2026-11-25 01:53:54] STEP_EVENT Step 3 action {"index":3,"phase":"action","action_type":"analyze","detail":"Extracting the current page title"}
+[2026-11-25 01:53:54] STEP_EVENT Step 3 reasoning {"index":3,"phase":"reasoning","action_type":"analyze","detail":"Extracting the current page title"}
+[2026-11-25 01:53:54] STEP_END Step 3 passed {"index":3,"status":"passed","duration":5.2,"summary":"analyze: the visible report title equals \"Stablecoin Market Snapshot\""}
+[2026-11-25 01:53:54] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":3,"id":"0-3","action_id":"04566de9-e573-4bb3-9a41-1c412aab4328","action_ids":["04566de9-e573-4bb3-9a41-1c412aab4328"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:53:55] STEP_START Step 4 started {"index":4,"objective":"Step 4"}
+[2026-11-25 01:53:55] STEP_EVENT Step 4 screenshot {"index":4,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:53:55] STEP_EVENT Step 4 evaluation {"index":4,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:53:55] STEP_EVENT Step 4 assertion {"index":4,"phase":"assertion","detail":"the visible report title equals \"Stablecoin Market Snapshot\""}
+[2026-11-25 01:53:55] STEP_END Step 4 passed {"index":4,"status":"passed","duration":0,"summary":"assert: the visible report title equals \"Stablecoin Market Snapshot\""}
+[2026-11-25 01:53:55] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":4,"id":"0-4","action_id":"8ebc2e41-7044-439b-ba68-038caf4b2c7f","action_ids":["8ebc2e41-7044-439b-ba68-038caf4b2c7f"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:54:04] STEP_EVENT Step 0 cm_init {"index":0,"phase":"cm_init","detail":"extracted 1 checkpoints"}
+[2026-11-25 01:54:04] STEP_START Step 1 started {"index":1,"objective":"Step 1"}
+[2026-11-25 01:54:04] STEP_EVENT Step 1 screenshot {"index":1,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:54:04] STEP_EVENT Step 1 evaluation {"index":1,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:54:06] STEP_EVENT Step 1 page_manager {"index":1,"phase":"page_manager","detail":"blocked: none"}
+[2026-11-25 01:54:09] STEP_EVENT Step 1 reasoning {"index":1,"phase":"reasoning","action_type":"wait","detail":"Waiting inspect the stablecoin asset table"}
+[2026-11-25 01:54:10] STEP_EVENT Step 1 action {"index":1,"phase":"action","action_type":"wait","detail":"Inspecting the stablecoin asset table"}
+[2026-11-25 01:54:10] STEP_EVENT Step 1 reasoning {"index":1,"phase":"reasoning","action_type":"wait","detail":"Inspecting the stablecoin asset table"}
+[2026-11-25 01:54:10] STEP_END Step 1 passed {"index":1,"status":"passed","duration":5.9,"summary":"wait: PRIMARY: inspect the stablecoin asset table; role=table; text=\"Asset\" | HINTS: c"}
+[2026-11-25 01:54:10] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":5,"id":"1-1","action_id":"39aee8de-56a1-4add-963b-146ce36b2278","action_ids":["39aee8de-56a1-4add-963b-146ce36b2278"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:54:11] STEP_START Step 2 started {"index":2,"objective":"Step 2"}
+[2026-11-25 01:54:11] STEP_EVENT Step 2 screenshot {"index":2,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:54:11] STEP_EVENT Step 2 evaluation {"index":2,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:54:13] STEP_EVENT Step 2 page_manager {"index":2,"phase":"page_manager","detail":"blocked: none"}
+[2026-11-25 01:54:13] STEP_EVENT Step 2 reasoning {"index":2,"phase":"reasoning","action_type":"analyze","detail":"Reading PRIMARY: the stablecoin asset table contains at least five asset rows; role=table | HINTS: container=Stablecoin Market Snapshot report"}
+[2026-11-25 01:54:18] STEP_EVENT Step 2 action {"index":2,"phase":"action","action_type":"analyze","detail":"Counting asset rows in the stablecoin table"}
+[2026-11-25 01:54:18] STEP_EVENT Step 2 reasoning {"index":2,"phase":"reasoning","action_type":"analyze","detail":"Counting asset rows in the stablecoin table"}
+[2026-11-25 01:54:18] STEP_END Step 2 passed {"index":2,"status":"passed","duration":7.1,"summary":"analyze: ANALYZE(textual_visual, 'the stablecoin asset table contains at least five asset"}
+[2026-11-25 01:54:18] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":6,"id":"1-2","action_id":"c75a4e37-992c-4dd4-b4c3-64aafb6b672f","action_ids":["c75a4e37-992c-4dd4-b4c3-64aafb6b672f"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:54:18] STEP_START Step 3 started {"index":3,"objective":"Step 3"}
+[2026-11-25 01:54:18] STEP_EVENT Step 3 screenshot {"index":3,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:54:18] STEP_EVENT Step 3 evaluation {"index":3,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:54:18] STEP_EVENT Step 3 assertion {"index":3,"phase":"assertion","detail":"the stablecoin asset table contains at least five asset rows"}
+[2026-11-25 01:54:18] STEP_END Step 3 passed {"index":3,"status":"passed","duration":0,"summary":"assert: the stablecoin asset table contains at least five asset rows"}
+[2026-11-25 01:54:18] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":7,"id":"1-3","action_id":"1b1f54b7-31d7-421d-8dbe-ef392c79a821","action_ids":["1b1f54b7-31d7-421d-8dbe-ef392c79a821"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:54:29] STEP_EVENT Step 0 cm_init {"index":0,"phase":"cm_init","detail":"extracted 1 checkpoints"}
+[2026-11-25 01:54:29] STEP_START Step 1 started {"index":1,"objective":"Step 1"}
+[2026-11-25 01:54:29] STEP_EVENT Step 1 screenshot {"index":1,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:54:29] STEP_EVENT Step 1 evaluation {"index":1,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:54:31] STEP_EVENT Step 1 page_manager {"index":1,"phase":"page_manager","detail":"blocked: none"}
+[2026-11-25 01:54:37] STEP_EVENT Step 1 reasoning {"index":1,"phase":"reasoning","action_type":"analyze","detail":"inspect every row of the stablecoin asset table on the delivered report page"}
+[2026-11-25 01:54:43] STEP_EVENT Step 1 action {"index":1,"phase":"action","action_type":"analyze","detail":"Checking whether every asset row has a price value"}
+[2026-11-25 01:54:43] STEP_EVENT Step 1 reasoning {"index":1,"phase":"reasoning","action_type":"analyze","detail":"Checking whether every asset row has a price value"}
+[2026-11-25 01:54:43] STEP_EVENT Step 1 action {"index":1,"phase":"action","action_type":"analyze","detail":"Checking whether every asset row has a 24h change value"}
+[2026-11-25 01:54:43] STEP_EVENT Step 1 reasoning {"index":1,"phase":"reasoning","action_type":"analyze","detail":"Checking whether every asset row has a 24h change value"}
+[2026-11-25 01:54:43] STEP_END Step 1 passed {"index":1,"status":"passed","duration":14.4,"summary":"analyze: every asset row shows a 24h change value"}
+[2026-11-25 01:54:43] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":8,"id":"2-1","action_id":"7c81211c-db3d-4f19-bdd8-dd6c0ce92f78","action_ids":["7c81211c-db3d-4f19-bdd8-dd6c0ce92f78","953d9513-5c07-4b71-a242-05ac64796af6"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:54:44] STEP_START Step 2 started {"index":2,"objective":"Step 2"}
+[2026-11-25 01:54:44] STEP_EVENT Step 2 screenshot {"index":2,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:54:44] STEP_EVENT Step 2 evaluation {"index":2,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:54:44] STEP_EVENT Step 2 assertion {"index":2,"phase":"assertion","detail":"every asset row shows a price value and every asset row shows a 24h change value"}
+[2026-11-25 01:54:44] STEP_END Step 2 passed {"index":2,"status":"passed","duration":0,"summary":"assert: every asset row shows a price value and every asset row shows a 24h change value"}
+[2026-11-25 01:54:44] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":9,"id":"2-2","action_id":"2f14903d-1536-4313-a1cf-d89e031247e7","action_ids":["2f14903d-1536-4313-a1cf-d89e031247e7"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:54:51] STEP_EVENT Step 0 cm_init {"index":0,"phase":"cm_init","detail":"extracted 1 checkpoints"}
+[2026-11-25 01:54:52] STEP_START Step 1 started {"index":1,"objective":"Step 1"}
+[2026-11-25 01:54:52] STEP_EVENT Step 1 screenshot {"index":1,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:54:52] STEP_EVENT Step 1 evaluation {"index":1,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:54:53] STEP_EVENT Step 1 page_manager {"index":1,"phase":"page_manager","detail":"blocked: none"}
+[2026-11-25 01:54:57] STEP_EVENT Step 1 reasoning {"index":1,"phase":"reasoning","action_type":"wait","detail":"Waiting inspect the report's generated-at information on the delivered report page"}
+[2026-11-25 01:54:58] STEP_EVENT Step 1 action {"index":1,"phase":"action","action_type":"wait","detail":"Inspecting generated-at info on the delivered report page below the heading"}
+[2026-11-25 01:54:58] STEP_EVENT Step 1 reasoning {"index":1,"phase":"reasoning","action_type":"wait","detail":"Inspecting generated-at info on the delivered report page below the heading"}
+[2026-11-25 01:54:58] STEP_END Step 1 passed {"index":1,"status":"passed","duration":6.8,"summary":"wait: PRIMARY: inspect the report's generated-at information on the delivered report p"}
+[2026-11-25 01:54:58] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":10,"id":"3-1","action_id":"b7f4ff42-8c08-4a46-a544-235e066a14ab","action_ids":["b7f4ff42-8c08-4a46-a544-235e066a14ab"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:54:59] STEP_START Step 2 started {"index":2,"objective":"Step 2"}
+[2026-11-25 01:54:59] STEP_EVENT Step 2 screenshot {"index":2,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:54:59] STEP_EVENT Step 2 evaluation {"index":2,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:55:01] STEP_EVENT Step 2 page_manager {"index":2,"phase":"page_manager","detail":"blocked: none"}
+[2026-11-25 01:55:02] STEP_EVENT Step 2 reasoning {"index":2,"phase":"reasoning","action_type":"analyze","detail":"Reading PRIMARY: a generated-at timestamp is shown; role=text | HINTS: container=below the “Stablecoin Market Snapshot” heading"}
+[2026-11-25 01:55:06] STEP_EVENT Step 2 action {"index":2,"phase":"action","action_type":"analyze","detail":"Checking whether the generated-at timestamp is present"}
+[2026-11-25 01:55:06] STEP_EVENT Step 2 reasoning {"index":2,"phase":"reasoning","action_type":"analyze","detail":"Checking whether the generated-at timestamp is present"}
+[2026-11-25 01:55:06] STEP_END Step 2 passed {"index":2,"status":"passed","duration":7.3,"summary":"analyze: a generated-at timestamp is shown"}
+[2026-11-25 01:55:06] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":11,"id":"3-2","action_id":"32886144-5164-4e77-8803-42780e955da0","action_ids":["32886144-5164-4e77-8803-42780e955da0"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:55:07] STEP_START Step 3 started {"index":3,"objective":"Step 3"}
+[2026-11-25 01:55:07] STEP_EVENT Step 3 screenshot {"index":3,"phase":"screenshot","detail":"http://localhost:4021/report/view/2221ed79-74fd-45b9-a5a5-fac5d6cc7c18"}
+[2026-11-25 01:55:07] STEP_EVENT Step 3 evaluation {"index":3,"phase":"evaluation","detail":"checkpoints: 0 passed, 0 failed, 1 pending"}
+[2026-11-25 01:55:07] STEP_EVENT Step 3 assertion {"index":3,"phase":"assertion","detail":"a generated-at timestamp is shown"}
+[2026-11-25 01:55:07] STEP_END Step 3 passed {"index":3,"status":"passed","duration":0,"summary":"assert: a generated-at timestamp is shown"}
+[2026-11-25 01:55:07] SCREENSHOT_ENQUEUED Screenshot enqueued {"ordinal":12,"id":"3-3","action_id":"2dbb53de-38d1-418e-a6a1-6ac3f4e057de","action_ids":["2dbb53de-38d1-418e-a6a1-6ac3f4e057de"],"screenshot":"screenshot.jpg","size":43972}
+[2026-11-25 01:55:10] RUNNER_EXIT Runner exited {"code":0,"signal":"none"}
+[2026-11-25 01:55:10] PIPELINE_GATE_STATE Derived gate state (finalize) {"phase":"finalize","shouldUploadArtifacts":true,"shouldUploadPipeline":true,"shouldReplaceLocalOutput":true,"shouldCommit":true,"lockHeld":true,"anyAuthorStepRan":true,"cancelled":false,"overallStatus":"passed"}
+[2026-11-25 01:55:10] PIPELINE_COLLECT_READ Reading NDJSON file {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/logs/0-actions.ndjson"}
+[2026-11-25 01:55:10] PIPELINE_COLLECT_READ Reading NDJSON file {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/logs/1-actions.ndjson"}
+[2026-11-25 01:55:10] PIPELINE_COLLECT_READ Reading NDJSON file {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/logs/2-actions.ndjson"}
+[2026-11-25 01:55:10] PIPELINE_COLLECT_READ Reading NDJSON file {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/logs/3-actions.ndjson"}
+[2026-11-25 01:55:10] PIPELINE_CONVERT Collected NDJSON records {"total_records":13,"run_groups":4}
+[2026-11-25 01:55:10] PIPELINE_CONVERT_INSTRUCTIONS Auteur instructions produced {"count":4}
+[2026-11-25 01:55:10] PIPELINE_COLLECT_READ Reading NDJSON file {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/logs/0-actions.ndjson"}
+[2026-11-25 01:55:10] PIPELINE_COLLECT_READ Reading NDJSON file {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/logs/1-actions.ndjson"}
+[2026-11-25 01:55:10] PIPELINE_COLLECT_READ Reading NDJSON file {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/logs/2-actions.ndjson"}
+[2026-11-25 01:55:10] PIPELINE_COLLECT_READ Reading NDJSON file {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/logs/3-actions.ndjson"}
+[2026-11-25 01:55:10] PIPELINE_CONVERT_BLOB Blob created {"size_kb":75.8}
+[2026-11-25 01:55:10] PIPELINE_CONVERT_LOCAL_SAVE Execution blob saved locally {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/execution.json"}
+[2026-11-25 01:55:10] PIPELINE_CONVERT_PACK_COPY Execution blob copied into pack {"path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/auteur/execution.json"}
+[2026-11-25 01:55:10] PIPELINE_CONVERT_OK Conversion complete {"instructions":4,"blob_size_kb":75.8,"local_path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/execution.json","pack_path":"/Users/mercynaps/.testmuai/kaneai/sessions/370a2624-5254-4c71-aa60-d1333cc785e4/evidence/736e10dd-f686-4366-badc-1dd2eb2095d4.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/auteur/execution.json","duration_ms":7}
+[2026-11-25 01:55:10] PIPELINE_ATOMIC_REPLACE_OK Local output replaced
+[2026-11-25 01:55:11] BUNDLE_SYNC_OK testmd bundle pushed {"commit_id":"370a2624-5254-4c71-aa60-d1333cc785e4","bytes":17073}
+[2026-11-25 01:55:11] PIPELINE_COMMIT_LOCK_OK Commit lock acquired {"testcase_id":"01M7T8NQKG4WNSDADT3DXPTP8N","trigger":null,"test_instance_id":null}
+[2026-11-25 01:55:11] PIPELINE_FINALIZE_SKIPPED Finalize skipped (evolve flow or first-run disabled)
+[2026-11-25 01:55:11] PIPELINE_SHARE_START Requesting share link {"url":"https://api.lambdatest.com/lshs/api/v1.0/share-item/generate-sharable-link","testcase_id":"01M7T8NQKG4WNSDADT3DXPTP8N"}
+[2026-11-25 01:55:11] PIPELINE_SHARE_AUTH Share link auth config {"resolver":true,"fallback_auth_type":"basic","tms_user":"mercyboma35"}
+[2026-11-25 01:55:13] PIPELINE_SHARE_OK Share link generated {"share_id":"US_T2UTNQUFO3A6Q5C3N5DJA0U44OHK9FDLV5Y2MCJANI7NTNBTSVZPE722C155R3I5","duration_ms":1543}
+[2026-11-25 01:55:13] EXEC_SYNC context sync: 1 fact(s), 0 supersession(s)

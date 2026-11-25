@@ -1,0 +1,10 @@
+{
+  "kind": "analyze",
+  "status": "passed",
+  "summary": "analyze: Extracting the current page title",
+  "duration_ms": 58.3,
+  "url": "http://localhost:4021/report/view/13c1f90e-0940-49b0-b445-cc94a9730985",
+  "action_id": "c76152da-b89a-4f0b-8c9d-824823d578b4",
+  "ordinal": 3,
+  "id": "0-3"
+}

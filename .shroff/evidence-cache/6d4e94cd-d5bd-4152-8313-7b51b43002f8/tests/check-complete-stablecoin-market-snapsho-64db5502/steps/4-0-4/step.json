@@ -1,0 +1,10 @@
+{
+  "kind": "assert",
+  "status": "passed",
+  "summary": "assert: the visible report title equals \"Stablecoin Market Snapshot\"",
+  "duration_ms": 77.2,
+  "url": "http://localhost:4023/report/view/78459cbd-f927-4738-a7f2-042138050b88",
+  "action_id": "8ebc2e41-7044-439b-ba68-038caf4b2c7f",
+  "ordinal": 4,
+  "id": "0-4"
+}

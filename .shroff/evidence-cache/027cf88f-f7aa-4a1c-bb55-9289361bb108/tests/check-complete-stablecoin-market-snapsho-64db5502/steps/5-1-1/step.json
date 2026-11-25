@@ -1,0 +1,10 @@
+{
+  "kind": "wait",
+  "status": "passed",
+  "summary": "wait: Inspecting the stablecoin asset table on the delivered report page",
+  "duration_ms": 1044.8,
+  "url": "http://localhost:4021/report/view/13c1f90e-0940-49b0-b445-cc94a9730985",
+  "action_id": "27c6377c-3d90-440f-a665-21e4740afbc4",
+  "ordinal": 5,
+  "id": "1-1"
+}
