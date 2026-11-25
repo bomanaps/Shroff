@@ -40,7 +40,7 @@
       <p class="eyebrow">The referee for agent payments</p>
       <h1 class="display">Paid is not<br>delivered.</h1>
       <p class="lede">An AI agent pays. A seller promises. Shroff assays every delivery in a real
-        browser with Kane CLI — and the money moves only on its signed verdict.</p>
+        browser with Kane CLI, and the money moves only on its signed verdict.</p>
       <p class="scroll-cue">scroll to descend</p>
     </div>
   </div>
@@ -76,20 +76,21 @@
         <span class="glyph" id="verdict-glyph"></span>
         <span id="verdict-text"></span>
         <span class="detail" id="verdict-detail"></span>
+        <a id="verdict-tx" class="tx-link mono2" target="_blank" rel="noreferrer" hidden></a>
       </div>
     </div>
 
     <div class="console" id="console" hidden>
-      <span class="console-label">Try it — real testnet money, real browser, live:</span>
+      <span class="console-label">Try it live. Real testnet money, real browser:</span>
       <button class="buy" data-target="honest">Buy from the honest seller<span>$0.10 USDC · x402</span></button>
       <button class="buy bad" data-target="evil">Buy from the fraud<span>$0.10 USDC · x402</span></button>
       <button class="buy alt" data-target="fiat">Buy with a card<span>$0.50 · Stripe test</span></button>
       <span class="console-note" id="console-note"></span>
       <p class="provenance">
-        x402 runs on <strong>Base Sepolia testnet</strong> — the buyer wallet ships in
+        x402 runs on <strong>Base Sepolia testnet</strong>. The buyer wallet ships in
         <code>.env.judge</code>, funded with free Circle-faucet USDC (no real value; every
         settlement is public on BaseScan). Stripe runs in <strong>sandbox mode</strong> with
-        Stripe's published test card — no real money anywhere in this project.
+        Stripe's published test card. No real money anywhere in this project.
       </p>
     </div>
   </div>
@@ -133,7 +134,7 @@
     <p class="eyebrow">Chapter 05 · The Oath</p>
     <h2>Verify it yourself.</h2>
     <p class="lede">Every verdict above is Ed25519-signed by the referee and hash-chained to the one
-      before it. No trust required — run the chain check on your own machine.</p>
+      before it. No trust required: run the chain check on your own machine.</p>
     <div class="verify-cmd big"><span>npx shroff-verify-ledger</span></div>
     <p class="foot-sign">Shroff · the delivery referee for agent payments · Kane CLI is the judge</p>
   </div>
