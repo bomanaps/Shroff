@@ -39,6 +39,16 @@ function infraVerdict(summary: string): DeliveryVerdict {
   };
 }
 
+export async function judgeDelivery(check: DeliveryCheck): Promise<DeliveryVerdict> {
+  try {
+    const surface = check.run.testFile !== undefined ? "testmd" : "run";
+    return triage(await runKane(check.run), surface);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    return infraVerdict(`Verification could not run: ${message}`);
+  }
+}
+
 export function createDeliveryGate(config: DeliveryGateConfig): DeliveryGate {
   const records: VerdictRecord[] = [];
   const maxRecords = config.maxRecords ?? DEFAULT_MAX_RECORDS;

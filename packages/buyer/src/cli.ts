@@ -8,6 +8,22 @@ if (PRIVATE_KEY === undefined) {
   process.exit(1);
 }
 
+const REFEREE_URL = process.env["REFEREE_URL"];
+const MIN_SCORE = Number(process.env["MIN_SCORE"] ?? 0.5);
+
+if (REFEREE_URL !== undefined) {
+  const origin = new URL(SELLER_URL).origin;
+  const response = await fetch(`${REFEREE_URL}/sellers/score?seller=${encodeURIComponent(origin)}`);
+  const score = (await response.json()) as { score: number | null; band: string; verdicts: number };
+  console.log(
+    `[buyer] referee history for ${origin}: band=${score.band} score=${score.score ?? "n/a"} verdicts=${score.verdicts}`,
+  );
+  if (score.score !== null && score.score < MIN_SCORE) {
+    console.log(`[buyer] refusing to pay: seller's verified delivery rate ${score.score} is below ${MIN_SCORE}`);
+    process.exit(4);
+  }
+}
+
 const buyer = createBuyerClient(PRIVATE_KEY);
 console.log(`[buyer] ${buyer.address} purchasing ${SELLER_URL}`);
 

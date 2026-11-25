@@ -21,6 +21,7 @@ export {
   getDeliveryUrl,
 } from "./delivery-context.js";
 export {
+  judgeDelivery,
   createDeliveryGate,
   type DeliveryCheck,
   type DeliveryGate,
