@@ -8,11 +8,11 @@
   "session_name": "check-complete-stablecoin-market-snapshot-at-the-delivery",
   "executions": [
     {
-      "execution_id": "96799a51-e995-4325-98e9-ce6985372fbb",
+      "execution_id": "120f2167-ede3-4641-a9af-37461f63aab6",
       "run_kind": "author",
-      "status": "failed",
+      "status": "passed",
       "valid": true,
-      "at": "2026-11-24T22:46:23.449Z"
+      "at": "2026-11-25T00:20:08.475Z"
     }
   ]
 }

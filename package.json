@@ -17,7 +17,8 @@
     "build": "tsc -b",
     "typecheck": "tsc -b --noEmit",
     "lint": "eslint .",
-    "test": "node --test --import tsx $(git ls-files '*.test.ts')"
+    "test": "node --test --import tsx $(git ls-files '*.test.ts')",
+    "demo": "tsx demo/judge-demo.ts"
   },
   "devDependencies": {
     "@types/node": "^20.19.0",

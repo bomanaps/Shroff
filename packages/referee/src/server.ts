@@ -8,8 +8,9 @@ import {
   signVerdict,
   type RefereeKeys,
 } from "./signing.js";
-import { appendLedger } from "./ledger.js";
+import { appendLedger, readLedger } from "./ledger.js";
 import { scoreSellers, sellerOf } from "./score.js";
+import { renderDashboard } from "./dashboard.js";
 
 export interface RefereeServerConfig {
   port: number;
@@ -35,6 +36,18 @@ export function startReferee(config: RefereeServerConfig): { keys: RefereeKeys }
 
   app.get("/identity", (_req, res) => {
     res.json({ referee_id: keys.refereeId, public_key: keys.publicKeyPem });
+  });
+
+  app.get("/", (_req, res) => {
+    res.type("html").send(renderDashboard(keys.refereeId));
+  });
+
+  app.get("/feed", (_req, res) => {
+    if (config.ledgerPath === undefined) {
+      res.json([]);
+      return;
+    }
+    res.json(readLedger(config.ledgerPath).slice(-50));
   });
 
   app.get("/sellers", (_req, res) => {
