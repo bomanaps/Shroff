@@ -2,7 +2,7 @@
 
 **The delivery referee for agent payments. Kane CLI is the judge; money moves only on its signed verdict.**
 
-Live: **https://shroff-production.up.railway.app** · Demo video: **[YouTube](VIDEO_URL_HERE)** · Built for the [KaneCLI Online Hackathon](https://www.kaneclihack.sh/) (TestMu AI, Nov 2026)
+Live: **https://shroff-production.up.railway.app** · Demo video: **[YouTube](https://youtu.be/pWwu46evGvk)** · Built for the [KaneCLI Online Hackathon](https://www.kaneclihack.sh/) (TestMu AI, Nov 2026)
 
 ## The problem
 
@@ -130,6 +130,6 @@ Developer integration guide: **[/docs on the live site](https://shroff-productio
 
 Kane CLI (`testmd run --agent`, assurance pipeline, sealed evidence packs, NDJSON contract) · Claude Code (builder + repair agent) · `@x402/express` / `@x402/fetch` / `@x402/core` v2.31 · Stripe API (test mode) · three.js (the UI's scroll world) · plain TypeScript, no frameworks.
 
-Launch posts: [Reddit](REDDIT_URL_HERE) · [LinkedIn](LINKEDIN_URL_HERE)
+Launch posts: [Reddit](https://www.reddit.com/r/SideProject/s/E4cHg6JNk7) · [Hacker News](https://news.ycombinator.com/item?id=50643252)
 
 MIT © bomanaps
