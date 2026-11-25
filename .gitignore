@@ -6,3 +6,4 @@ dist/
 !.env.example
 !.env.judge
 .DS_Store
+.shroff/

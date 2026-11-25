@@ -1,9 +1,0 @@
-[2026-11-25 02:36:50] [INFO] v16_runner.replay_harness: replay start: recording=/Users/mercynaps/kane/Shroff/apps/seller-honest/.testmuai/tests/output-check-complete-stablecoin-market-snapshot-at-the-delivery/.internal/steps/1-a4cf92a8/flows/0/actions.ndjson flow=1/1 steps=4 run_dir=/Users/mercynaps/.testmuai/kaneai/sessions/9f57a4f2-bab1-4db5-b3f8-fc7735711fa2/scratch/0/replay-test
-[2026-11-25 02:36:51] [testmu]   [STEP 1] Navigate to {{global.delivery_url}}
-[2026-11-25 02:36:52] [testmu]     [set_var] name='visible_report_title_check' value=Your Daily Horoscope
-[2026-11-25 02:36:52] [testmu]   [STEP 2] Assertion check
-[2026-11-25 02:36:52] [testmu]     [assertion] deterministic claim=Assertion check
-[2026-11-25 02:36:52] [testmu]     [var] {{visible_report_title_check}} → Your Daily Horoscope
-[2026-11-25 02:36:52] [testmu]     [assertion] result status=failed
-[2026-11-25 02:36:52] [testmu]   [STEP 2 FAIL] Assertion failed: Assertion check
-[2026-11-25 02:37:01] [INFO] v16_runner.replay_harness: replay: failure record written: /Users/mercynaps/.testmuai/kaneai/sessions/9f57a4f2-bab1-4db5-b3f8-fc7735711fa2/evidence/21bc8330-97e3-421c-98bc-e6c158651405.evidence/tests/check-complete-stablecoin-market-snapsho-64db5502/steps/4-0-4/failure.yaml

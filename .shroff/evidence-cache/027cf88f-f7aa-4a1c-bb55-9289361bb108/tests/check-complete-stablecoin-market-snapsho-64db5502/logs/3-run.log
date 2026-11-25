@@ -1,7 +1,0 @@
-[2026-11-25 01:55:05] [INFO] v16_runner.replay_harness: replay start: recording=/Users/mercynaps/kane/Shroff/apps/seller-honest/.testmuai/tests/output-check-complete-stablecoin-market-snapshot-at-the-delivery/.internal/steps/4-918ea5ba/flows/0/actions.ndjson flow=1/1 steps=3 run_dir=/Users/mercynaps/.testmuai/kaneai/sessions/027cf88f-f7aa-4a1c-bb55-9289361bb108/scratch/3/replay-test
-[2026-11-25 01:55:06] [testmu]   [STEP 8] whether a generated-at timestamp is present in the report header
-[2026-11-25 01:55:06] [testmu]     [set_var] name='generated_at_timestamp_shown' value=true
-[2026-11-25 01:55:06] [testmu]   [STEP 9] Assertion check
-[2026-11-25 01:55:06] [testmu]     [assertion] deterministic claim=Assertion check
-[2026-11-25 01:55:06] [testmu]     [var] {{generated_at_timestamp_shown}} → true
-[2026-11-25 01:55:06] [testmu]     [assertion] result status=passed

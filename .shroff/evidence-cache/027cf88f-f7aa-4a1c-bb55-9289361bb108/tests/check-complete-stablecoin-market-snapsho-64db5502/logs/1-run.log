@@ -1,7 +1,0 @@
-[2026-11-25 01:55:01] [INFO] v16_runner.replay_harness: replay start: recording=/Users/mercynaps/kane/Shroff/apps/seller-honest/.testmuai/tests/output-check-complete-stablecoin-market-snapshot-at-the-delivery/.internal/steps/2-e34d5451/flows/0/actions.ndjson flow=1/1 steps=3 run_dir=/Users/mercynaps/.testmuai/kaneai/sessions/027cf88f-f7aa-4a1c-bb55-9289361bb108/scratch/1/replay-test
-[2026-11-25 01:55:02] [testmu]   [STEP 3] the number of asset rows in the stablecoin asset table
-[2026-11-25 01:55:02] [testmu]     [set_var] name='stablecoin_asset_row_count_check' value=5
-[2026-11-25 01:55:02] [testmu]   [STEP 4] Assertion check
-[2026-11-25 01:55:02] [testmu]     [assertion] deterministic claim=Assertion check
-[2026-11-25 01:55:02] [testmu]     [var] {{stablecoin_asset_row_count_check}} → 5
-[2026-11-25 01:55:02] [testmu]     [assertion] result status=passed
