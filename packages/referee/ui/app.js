@@ -317,6 +317,11 @@ function connect() {
         setCount("settled", counts.settled + 1, "flash-ok");
       }
       const txEl = $("verdict-tx");
+      if (txEl && ev.data.status === "settle_failed") {
+        txEl.removeAttribute("href");
+        txEl.textContent = "on-chain settle failed at the facilitator; funds never moved, retry the purchase";
+        txEl.hidden = false;
+      }
       if (txEl && ev.data.transaction) {
         if (ev.data.rail === "x402-usdc") {
           txEl.href = `https://sepolia.basescan.org/tx/${ev.data.transaction}`;

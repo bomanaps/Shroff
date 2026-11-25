@@ -99,6 +99,16 @@ const resourceServer = new x402ResourceServer(facilitator)
         ...(result.transaction !== undefined ? { transaction: result.transaction } : {}),
       });
     }
+  })
+  .onSettleFailure(async (context) => {
+    const signed = gate.records.at(-1);
+    if (signed !== undefined) {
+      await referee.reportOutcome(signed.signature, {
+        rail: "x402-usdc",
+        status: "settle_failed",
+        detail: context.error.message.slice(0, 200),
+      });
+    }
   });
 
 app.use(
