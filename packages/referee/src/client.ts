@@ -2,7 +2,7 @@ import { verifySignedVerdict, type SignedVerdict } from "./signing.js";
 
 export interface OutcomeReport {
   rail: string;
-  status: "settled" | "refused" | "captured" | "cancelled";
+  status: "settled" | "refused" | "captured" | "cancelled" | "settle_failed";
   transaction?: string;
   detail?: string;
 }
