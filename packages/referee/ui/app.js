@@ -147,7 +147,7 @@ function proofSheet(row) {
     ? (o.rail === "x402-usdc"
         ? `<a class="tx-link mono2" href="https://sepolia.basescan.org/tx/${esc(o.transaction)}" target="_blank" rel="noreferrer">${esc(o.transaction.slice(0, 10))}…${esc(o.transaction.slice(-8))} ↗</a>`
         : `<span class="mono2">${esc(o.transaction)}</span>`)
-    : "—";
+    : "n/a";
   return `<div class="proof">
     <div class="summary">${esc(e.verdict.summary)}</div>
     <dl class="proof-grid">
@@ -223,6 +223,11 @@ let currentSession = null;
 let shotTimer = null;
 
 function stageReset(title, seller, rail) {
+  const txEl = $("verdict-tx");
+  if (txEl) {
+    txEl.hidden = true;
+    txEl.textContent = "";
+  }
   stage.classList.remove("sealed-ok", "sealed-bad");
   stage.classList.add("live");
   $("stage-title").textContent = title;
@@ -266,8 +271,8 @@ function stageVerdict(data) {
   banner.className = "verdict-banner on " + (ok ? "ok" : "bad");
   $("verdict-glyph").textContent = ok ? "✓" : "✕";
   $("verdict-text").textContent = ok
-    ? "Delivered — verdict sealed, settlement may proceed"
-    : "Not delivered — verdict sealed, settlement refused";
+    ? "Delivered. Verdict sealed, settlement may proceed"
+    : "Not delivered. Verdict sealed, settlement refused";
   $("verdict-detail").textContent = (data.summary ?? "").split("\n")[0];
   if (data.evidenceSession) {
     currentSession = data.evidenceSession;
@@ -310,6 +315,17 @@ function connect() {
     } else if (ev.kind === "outcome") {
       if (ev.data.status === "settled" || ev.data.status === "captured") {
         setCount("settled", counts.settled + 1, "flash-ok");
+      }
+      const txEl = $("verdict-tx");
+      if (txEl && ev.data.transaction) {
+        if (ev.data.rail === "x402-usdc") {
+          txEl.href = `https://sepolia.basescan.org/tx/${ev.data.transaction}`;
+          txEl.textContent = `settled on-chain: ${ev.data.transaction.slice(0, 10)}…${ev.data.transaction.slice(-6)} ↗`;
+        } else {
+          txEl.removeAttribute("href");
+          txEl.textContent = `Stripe sandbox ${ev.data.status}: ${ev.data.transaction}`;
+        }
+        txEl.hidden = false;
       }
       if (ev.data.status === "buyer_refused") {
         const note = $("console-note");
@@ -367,13 +383,13 @@ async function initConsole() {
   };
   for (const button of buttons) {
     button.addEventListener("click", async () => {
-      setBusy(true, "payment in flight — watch the stage above");
+      setBusy(true, "payment in flight, watch the stage above");
       const r = await fetch("/demo/buy", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ target: button.dataset.target }),
       });
-      if (!r.ok) setBusy(false, "busy — one purchase at a time");
+      if (!r.ok) setBusy(false, "busy, one purchase at a time");
     });
   }
   document.addEventListener("shroff:verdict", () => setTimeout(() => setBusy(false, ""), 4000));
