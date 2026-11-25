@@ -79,6 +79,17 @@ export async function runKane(options: KaneRunOptions): Promise<KaneRunResult> {
     if (event !== undefined) {
       events.push(event);
       options.onEvent?.(event);
+      return;
+    }
+    if (options.onEvent !== undefined) {
+      try {
+        const loose: unknown = JSON.parse(line);
+        if (typeof loose === "object" && loose !== null) {
+          options.onEvent(loose as KaneEvent);
+        }
+      } catch {
+        return;
+      }
     }
   });
 

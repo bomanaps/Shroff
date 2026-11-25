@@ -1,7 +1,8 @@
 import { randomUUID } from "node:crypto";
 import express from "express";
 import Stripe from "stripe";
-import { judgeDelivery, type VerdictRecord } from "@shroff/gateway";
+import type { VerdictRecord } from "@shroff/gateway";
+import { connectReferee } from "@shroff/referee";
 import { buildReport, renderReportPage } from "./report.js";
 import { isFraudMode, renderFraudPage } from "./fraud.js";
 
@@ -25,6 +26,10 @@ if (MODE !== undefined && !isFraudMode(MODE)) {
   console.error(`FRAUD_MODE must be blank, bait, or locked (got ${JSON.stringify(MODE)})`);
   process.exit(1);
 }
+
+const REFEREE_URL = process.env["REFEREE_URL"] ?? "http://localhost:4040";
+const referee = await connectReferee(REFEREE_URL);
+console.log(`[seller-fiat] trusting referee ${referee.refereeId} at ${REFEREE_URL}`);
 
 const stripe = new Stripe(STRIPE_KEY);
 const app = express();
@@ -81,15 +86,21 @@ app.post("/buy", (req, res) => {
     storeDelivery(token, page);
     const deliveryUrl = `${BASE_URL}/report/view/${token}`;
 
-    const verdict = await judgeDelivery({
-      run: {
-        testFile:
-          ".testmuai/tests/check-complete-stablecoin-market-snapshot-at-the-delivery_test.md",
-        variables: { delivery_url: deliveryUrl },
-        cwd: new URL("..", import.meta.url).pathname,
-        timeoutSeconds: KANE_TIMEOUT,
-      },
-    });
+    const signed = await referee.verify(
+      deliveryUrl,
+      ".testmuai/tests/check-complete-stablecoin-market-snapshot-at-the-delivery_test.md",
+      "stripe-fiat",
+    );
+    const verdict = {
+      kind: signed.verdict.kind,
+      settleable: signed.verdict.settleable,
+      disputable: signed.verdict.disputable,
+      summary: signed.verdict.summary,
+      reason: undefined,
+      sessionDir: signed.evidenceDir,
+      creditsConsumed: undefined,
+      runEnd: undefined,
+    };
     const record: VerdictRecord = {
       label: `fiat-report-delivery${MODE !== undefined ? `[fraud=${MODE}]` : ""}`,
       verdict,
@@ -97,11 +108,16 @@ app.post("/buy", (req, res) => {
     };
     records.push(record);
     console.log(
-      `[shroff] verdict=${verdict.kind} settleable=${verdict.settleable} evidence=${verdict.sessionDir ?? "n/a"}`,
+      `[shroff] signed verdict=${verdict.kind} settleable=${verdict.settleable} evidence=${verdict.sessionDir ?? "n/a"}`,
     );
 
     if (verdict.settleable) {
       const captured = await stripe.paymentIntents.capture(intent.id);
+      await referee.reportOutcome(signed.signature, {
+        rail: "stripe-fiat",
+        status: "captured",
+        transaction: captured.id,
+      });
       res.json({
         settled: true,
         delivery_url: deliveryUrl,
@@ -112,6 +128,12 @@ app.post("/buy", (req, res) => {
     }
     const cancelled = await stripe.paymentIntents.cancel(intent.id, {
       cancellation_reason: "fraudulent",
+    });
+    await referee.reportOutcome(signed.signature, {
+      rail: "stripe-fiat",
+      status: "cancelled",
+      transaction: cancelled.id,
+      detail: verdict.summary,
     });
     res.status(402).json({
       settled: false,

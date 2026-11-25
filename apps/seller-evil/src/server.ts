@@ -61,6 +61,7 @@ const gate = createRefereeGate(referee, {
   testFile:
     ".testmuai/tests/check-complete-stablecoin-market-snapshot-at-the-delivery_test.md",
   getDeliveryUrl,
+  rail: "x402-usdc",
   onVerdict: (signed) => {
     console.log(
       `[shroff] signed verdict=${signed.verdict.kind} settleable=${signed.verdict.settleable} ` +

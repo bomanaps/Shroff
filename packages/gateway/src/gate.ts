@@ -39,10 +39,14 @@ function infraVerdict(summary: string): DeliveryVerdict {
   };
 }
 
-export async function judgeDelivery(check: DeliveryCheck): Promise<DeliveryVerdict> {
+export async function judgeDelivery(
+  check: DeliveryCheck,
+  onEvent?: KaneRunOptions["onEvent"],
+): Promise<DeliveryVerdict> {
   try {
     const surface = check.run.testFile !== undefined ? "testmd" : "run";
-    return triage(await runKane(check.run), surface);
+    const run = onEvent !== undefined ? { ...check.run, onEvent } : check.run;
+    return triage(await runKane(run), surface);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     return infraVerdict(`Verification could not run: ${message}`);

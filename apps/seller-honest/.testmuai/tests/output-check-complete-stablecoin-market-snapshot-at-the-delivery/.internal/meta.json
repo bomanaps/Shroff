@@ -1,5 +1,5 @@
 {
-  "commit_id": "f292f657-0465-4e19-be9c-5e2cc755016b",
+  "commit_id": "370a2624-5254-4c71-aa60-d1333cc785e4",
   "test_id": "ae365569-d6be-45ff-b810-ea8015af7877",
   "testcase_id": "01M7T8NQKG4WNSDADT3DXPTP8N",
   "project_id": "01M7T2KS79H2BHB1JK2SCEYNMR",
@@ -8,11 +8,18 @@
   "session_name": "check-complete-stablecoin-market-snapshot-at-the-delivery",
   "executions": [
     {
-      "execution_id": "7c2bf83a-fac6-436b-a1b9-cf8c315daef5",
+      "execution_id": "736e10dd-f686-4366-badc-1dd2eb2095d4",
       "run_kind": "author",
-      "status": "failed",
+      "status": "passed",
       "valid": true,
-      "at": "2026-11-25T00:17:54.490Z"
+      "at": "2026-11-25T01:55:13.401Z"
+    },
+    {
+      "execution_id": "90d37795-c875-46cf-869e-8d923b1032dc",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-11-25T02:00:50.110Z"
     }
   ]
 }

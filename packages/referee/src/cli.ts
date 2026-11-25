@@ -9,4 +9,5 @@ startReferee({
     : {}),
   ledgerPath: resolve(process.env["LEDGER_PATH"] ?? ".shroff/verdicts.ndjson"),
   kaneTimeoutSeconds: Number(process.env["KANE_TIMEOUT"] ?? 300),
+  ...(process.env["DEMO_ROOT"] !== undefined ? { demoRoot: resolve(process.env["DEMO_ROOT"]) } : {}),
 });
