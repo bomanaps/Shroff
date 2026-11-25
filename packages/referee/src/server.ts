@@ -235,6 +235,15 @@ export function startReferee(config: RefereeServerConfig): { keys: RefereeKeys }
     res.json({ started: true });
   });
 
+  app.get("/docs", (_req, res) => {
+    res.sendFile(join(UI_DIR, "docs.html"));
+  });
+
+  app.get("/integration.md", (_req, res) => {
+    const local = resolve(fileURLToPath(new URL("../../../docs/INTEGRATION.md", import.meta.url)));
+    res.type("text/plain").sendFile(local);
+  });
+
   app.get("/promise", (_req, res) => {
     const spec = join(config.testRoot, "delivery-spec.md");
     const test = readdirSync(join(config.testRoot, ".testmuai", "tests")).find((f) =>
