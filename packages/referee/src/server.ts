@@ -167,6 +167,10 @@ export function startReferee(config: RefereeServerConfig): { keys: RefereeKeys }
   });
 
   let demoBusy = false;
+  let demoRuns = 0;
+  let demoLastAt = 0;
+  const DEMO_MAX_RUNS = Number(process.env["DEMO_MAX_RUNS"] ?? 1000);
+  const DEMO_COOLDOWN_MS = Number(process.env["DEMO_COOLDOWN_SECONDS"] ?? 0) * 1000;
   const DEMO_TARGETS: Record<string, { script: string; env: Record<string, string> }> = {
     honest: {
       script: "packages/buyer/src/cli.ts",
@@ -193,7 +197,17 @@ export function startReferee(config: RefereeServerConfig): { keys: RefereeKeys }
       res.status(409).json({ error: "a purchase is already in flight" });
       return;
     }
+    if (demoRuns >= DEMO_MAX_RUNS) {
+      res.status(429).json({ error: "demo budget exhausted — clone the repo and run it locally" });
+      return;
+    }
+    if (Date.now() - demoLastAt < DEMO_COOLDOWN_MS) {
+      res.status(429).json({ error: "cooling down — try again in a couple of minutes" });
+      return;
+    }
     demoBusy = true;
+    demoRuns++;
+    demoLastAt = Date.now();
     const child = spawn("npx", ["tsx", target.script], {
       cwd: config.demoRoot,
       env: { ...process.env, ...target.env },
