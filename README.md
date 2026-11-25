@@ -100,7 +100,7 @@ npm run demo
 
 `npm run demo` runs five acts in one command: honest x402 settle (real tx hash) → fraud caught, settlement refused → trust scoreboard + buyer refusal → Stripe capture-on-pass → ledger chain verification. Or use the deployed site's buy buttons at the URL above; every run streams live (steps, browser evidence, verdict, BaseScan link).
 
-Tests: `npm test` (52 across gateway, spec-compiler, loop, referee — including a fake Kane binary covering ENOENT, SIGKILL, hang, and truncated output). CI runs typecheck + suite on every push.
+Tests: `npm test` (46 across gateway, spec-compiler, loop, referee, including a fake Kane binary covering ENOENT, SIGKILL, hang, and truncated output). CI runs typecheck + suite on every push.
 
 ## Money and keys
 

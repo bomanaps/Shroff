@@ -80,8 +80,8 @@ app.get("/your-resource", (req, res) => {
 
 Semantics of the hook's abort reasons:
 
-- `delivery_failed` — Kane positively saw a broken promise. Disputable; counts against the seller's score.
-- `delivery_unverified` — infra error, timeout, missing verdict, or bad signature. Fails closed; blames no one.
+- `delivery_failed`: Kane positively saw a broken promise. Disputable; counts against the seller's score.
+- `delivery_unverified`: infra error, timeout, missing verdict, or bad signature. Fails closed; blames no one.
 
 ## 4. Gate a fiat (Stripe) seller
 
