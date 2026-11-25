@@ -14,7 +14,7 @@ COPY package.json package-lock.json tsconfig.json tsconfig.base.json .env.judge 
 COPY packages ./packages
 COPY apps ./apps
 COPY deploy ./deploy
-RUN npm ci && chmod +x deploy/start.sh
+RUN npm ci && npx tsc -b && chmod +x deploy/start.sh
 
 ENV NODE_ENV=production
 EXPOSE 4040
